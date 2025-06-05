@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/Activity.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act" id="current">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<br>
+<div>
+    <div class="carousel">
+        <div class="carousel-slides">
+            <div class="carousel-slide"><img src="../images/test1.jpg"></div>
+            <div class="carousel-slide"><img src="../images/test2.jpg"></div>
+            <div class="carousel-slide"><img src="../images/test3.jpg"></div>
+        </div>
+        <a class="carousel-control prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="carousel-control next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>特色主题活动</h2>
+            <div class="feature-activity">
+                <h3>奇妙探索季</h3>
+                <h4>🌟“日观万物，夜探秘境”🌟</h4>
+                <p>探索未知领域，与生灵共舞于璀璨星空下。日夜双游模式，融合自然奇观与动物保护理念，诚邀您亲身体验，共筑和谐生态之梦！</p>
+                <a href="http://localhost:8888/A" class="btn">了解更多</a>
+            </div>
+            <div class="feature-activity">
+                <h3>园际缤纷汇</h3>
+                <h4>🌟“共赏奇趣，悦动园界”🌟</h4>
+                <p>跨越界限，共绘生态奇梦。昼夜联动盛宴，与万千生灵同欢，邀您亲历非凡之旅！</p>
+                <a href="http://localhost:8888/B" class="btn">了解更多</a>
+            </div>
+            <div class="feature-activity">
+                <h3>佳节悦兽行</h3>
+                <h4>🌟“瑞兽呈祥，乐舞同辉”🌟</h4>
+                <p>佳节逢盛世，动物园中兽影欢腾。传统民俗与现代创意交织，日夜双景精彩纷呈，邀您共鉴这场融合自然之灵与文化之韵的非凡盛宴！</p>
+                <a href="http://localhost:8888/C" class="btn">了解更多</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="logo">
+                <h2>常规活动</h2>
+                <img src="../images/logo.png">
+            </div>
+            <div class="activity-section" id="cor">
+                <h3>公益合作</h3>
+                <div class="one">
+                    <div class="co">
+                        <h4>“动物园”新年公益音乐会举办，“让它去飞翔”猛禽保护项目发布</h4>
+                        <p>2月22日晚，由南京红山森林动物园、GALA乐队、字节跳动公益联合主办的
+                            2024“动物园”新年公益音乐会在南京拉开帷幕。在南京太阳宫猫头鹰空间，
+                            GALA乐队、毛血旺乐队以及嘉宾唱作人星默、赵力昂、说唱歌手Gibb-Z带
+                            来了一场特别的音乐会，为一直关心支持野生动物保护的志愿者和朋友们献唱
+                            ，汇聚爱心，共筑梦想。</p>
+                        <img src="../images/act7.webp" style="margin-top: -0.5rem">
+                    </div>
+                    <div class="co">
+                        <h4>喜茶与红山动物园达成公益合作，认养水豚“杏仁”</h4>
+                        <p>9月21日上午，喜茶在南京市红山森林动物园举办公益认养仪式，宣布认养水豚
+                            “杏仁”。喜茶方面表示，此次与红山森林动物园达成合作，将充分利用双方的
+                            影响力，进一步实现现代动物园“科普教育”的价值，带动更多人参与到动物保
+                            护的公益实践中。</p>
+                        <img src="../images/act6.jpg" style="margin-top: -0.5rem">
+                    </div>
+                    <div class="co">
+                        <h4>QQ 联合长隆推出全球首个「AR 濒危动物园」：科技向善 让公益更有温度</h4>
+                        <p>为了让更多人了解、认识、接触濒危动物，腾讯 QQ 与长隆集团合作共同打造全球
+                            首个「AR 濒危动物园」，这也是全球首例 AR 动物与真实动物共生的动物园体验。
+                            基于 LBS 技术和 QQ-AR 技术，游客在广州长隆野生动物世界不同区域，按照指引
+                            通过手机 QQ「扫一扫」即可观看不同濒危动物在真实自然环境下的生存情况并与其进行互动。</p>
+                        <img src="../images/act1.png" style="margin-top: -0.5rem">
+                    </div>
+                </div>
+            </div>
+            <div class="activity-section">
+                <h3>科普教育</h3>
+                <div>
+                    <h4>🌈 寓教于乐，启迪智慧</h4>
+                    <p>我们精心设计了一系列互动体验项目，让每一位小探险家在玩乐中了解动物习性、生态平衡及保护自然的
+                        重要性。通过趣味问答、VR体验、手工制作等多样化形式，激发孩子们的好奇心和探索欲，让学习变得生动有趣！</p>
+                </div>
+                <div>
+                    <h4>🐘 动物明星，亲密接触</h4>
+                    <p>走进我们的科普展区，你将有机会近距离观察到大象的温柔、狮子的威严、熊猫的憨态...每一只动物
+                        都是自然界的瑰宝，它们的故事和生存智慧等待着你的发现。更有专业讲解员现场讲解，带你深入了解它们的生活习性和保护现状。</p>
+                </div>
+                <div>
+                    <h4>🌱 生态课堂，共筑绿色未来</h4>
+                    <p>参与我们的生态教育课程，从认识生物多样性到理解气候变化的影响，孩子们将学会如何尊重生命、保护环境。通过实践活动，
+                        如植树造林、垃圾分类小能手等，让孩子们亲手为地球母亲添上一抹绿，共筑我们的绿色未来。</p>
+                </div>
+                <div>
+                    <h4>📚 在线资源，随时随地学习</h4>
+                    <p>除了现场体验，我们还提供丰富的在线科普资源，包括视频讲座、电子书籍、互动游戏等，让科普知识触手可及，无论何时何地都能享受学习的乐趣。</p>
+                </div>
+                <a href="http://localhost:8888/Science" class="btn">了解更多</a>
+            </div>
+            <div class="activity-section">
+                <h3>亲子活动</h3>
+                <div class="one">
+                    <div class="co">
+                        <img src="../images/act3.jpg">
+                    </div>
+                    <div class="co">
+                        <img src="../images/act4.jpg">
+                    </div>
+                    <div class="co">
+                        <img src="../images/act5.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/Activity.js"></script>
+</body>
+</html>

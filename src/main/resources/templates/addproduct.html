@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加动物园</title>
+    <link rel="stylesheet" th:href="@{/css/adminaddupdateproduct.css}">
+</head>
+<body>
+<form th:action="@{/addProduct}" method="post" class="table">
+    <h1>添加动物园</h1>
+    <table class="tableless">
+        <tr>
+            <td>动物园名称</td>
+            <td><input type="text" name="name" class="inp"></td>
+        </tr>
+        <tr>
+            <td>图片</td>
+            <td><input type="text" name="img" class="inp"></td>
+        </tr>
+        <tr>
+            <td>简介</td>
+            <td><input type="text" name="introduction" class="inp"></td>
+        </tr>
+        <tr>
+            <td>价格</td>
+            <td><input type="text" name="price" class="inp"></td>
+        </tr>
+        <tr>
+            <td>已售数量</td>
+            <td><input type="text" name="pnum" class="inp"></td>
+        </tr>
+        <tr>
+            <td>库存数量</td>
+            <td><input type="text" name="sales" class="inp"></td>
+        </tr>
+        <tr>
+            <td>所在地区</td>
+            <td><input type="text" name="area" class="inp"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="添加" class="Button"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

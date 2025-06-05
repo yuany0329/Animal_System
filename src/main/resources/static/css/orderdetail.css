@@ -1,0 +1,185 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("../images/Science.png") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 12.5%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 12.5%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+.order{
+    height: 28rem;
+    display: flex;
+}
+
+.right{
+    padding-left: 10rem;
+    flex: 4;
+}
+
+.left{
+    width: 20rem;
+    flex: 5;
+}
+
+.order table{
+    margin-top: 4rem;
+    padding: 1rem;
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-radius: 3rem;
+    height: 18rem;
+    width: 22rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(244, 244, 244, 0.71);
+}
+
+.about_order{
+    margin-top: 1.5rem;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-radius: 3rem;
+    height: 25rem;
+    width: 20rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(244, 244, 244, 0.71);
+}
+
+#payButton{
+    margin-top: 30px;
+    margin-left: 30%;
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#payButton:hover{
+    background-color: #45a049;
+}
+
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+#confirmPayment{
+    margin-left: 40%;
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#confirmPayment:hover{
+    background-color: #45a049;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

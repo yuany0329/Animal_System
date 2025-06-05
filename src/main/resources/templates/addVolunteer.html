@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>添加志愿者</title>
+  <link rel="stylesheet" th:href="@{/css/addstyle.css}">
+</head>
+<body>
+<form th:action="@{/addVolunteer}" method="post" class="fancy-form">
+  <div class="form-group">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="male" style="display: inline-block; margin-right: 20px;">性别：</label>
+    <div class="radio-custom">
+      <input type="radio" id="male" name="sex" value="男">
+      <label for="male" class="radio-label">男</label>
+    </div>
+    <div class="radio-custom">
+      <input type="radio" id="female" name="sex" value="女">
+      <label for="female" class="radio-label">女</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age">年龄：</label>
+    <input type="text" id="age" name="age" required>
+  </div>
+  <div class="form-group">
+    <label for="Id_Card_Number">身份证号码：</label>
+    <input type="text" id="Id_Card_Number" name="Id_Card_Number" required>
+  </div>
+  <div class="form-group">
+    <label for="phone">电话号码：</label>
+    <input type="text" id="phone" name="phone" required>
+  </div>
+  <div class="form-group">
+    <label for="time">日期：</label>
+    <input type="date" id="time" name="time" required>
+  </div>
+  <div class="form-group">
+    <label for="hdid">活动名称：</label>
+    <select id="hdid" name="hdid" class="custom-select" required>
+      <option value="">请选择活动序号</option>
+      <option value="熊猫保育员">爱心体验官</option>
+      <option value="小小保育员">小小保育员</option>
+      <option value="海洋王国研学">海洋王国研学</option>
+    </select>
+  </div>
+  <!-- 省略其他表单项以简化示例 -->
+  <button type="submit">提交</button>
+</form>
+
+</body>
+</html>

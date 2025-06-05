@@ -1,0 +1,778 @@
+body {
+    /* 设置背景图片 */
+    /*background-image: url('../img/2.2.png');*/
+    margin: 0;
+    padding: 0;
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+
+    /* 背景图片覆盖整个页面 */
+    background-size: cover;
+
+    /* 背景图片固定，页面滚动时不移动 */
+    background-attachment: fixed;
+
+    /* 设置背景颜色，当图片加载失败或图片小于元素时显示 */
+    background-color: #f0f0f0;
+
+    /* 可选：设置背景图片的位置 */
+    /* background-position: center; */
+
+    /* 确保body元素占据整个视口的高度 */
+    min-height: 100vh;
+
+    /* 可选：为body添加一些内边距，避免内容直接贴在背景图片边缘 */
+    /* padding: 20px; */
+
+    /* 可选：为body设置一些边距，以避免内容被滚动条遮挡（在需要滚动条时） */
+    /* margin: 0; */
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 12.5%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    width: 12.5%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+.content {
+    display: none;
+    height: 100vh; /* 使内容块高度占满整个视窗 */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 24px;
+    background: #4CAF50;
+
+}
+.content.active {
+    display: block;
+    background: #3b7186;
+}
+#content1{
+    /*background: #4a6d42;a*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100px;*/
+}
+.h1{
+        font: 2.5rem "华文行楷";/*设置字体和字体大小*/
+        margin:40px auto; /*设置元素外边距*/
+        font-weight: 500; /*设置字体粗细*/
+        margin-right: 20%;
+        color: rgba(0, 0, 0, 0.75); /*设置文字颜色*/
+        -webkit-animation:swing 2s infinite;/*设置动画*/
+    }
+    @-webkit-keyframes swing{/*创建动画*/
+        20%{
+            -webkit-transform:rotate(15deg);
+        }40%{
+             -webkit-transform:rotate(-15deg);
+         }60%{
+              -webkit-transform:rotate(5deg);
+          }80%{
+               -webkit-transform:rotate(-5deg);
+           }100%{
+                -webkit-transform:rotate(0deg);
+            }
+    }
+
+.module{
+    height: 20rem;
+    width: 40rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 20px;
+    margin-top: 2rem;
+    margin-left:10%;
+    margin-right: 8rem;
+    border-radius: 3rem;
+    border: 1px solid #ccc;
+    background: rgba(246, 242, 242, 0.34);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+.module1{
+    height: 30rem;
+    width: 52rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 20px;
+    margin-top: 2rem;
+    margin-left:5%;
+    margin-right: 3rem;
+    border-radius: 3rem;
+    border: 1px solid #ccc;
+    background: rgba(246, 242, 242, 0.34);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.modulex{
+    height: 25rem;
+    width: 45rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 20px;
+    margin-top: 2rem;
+    margin-left:20%;
+    margin-right: 3rem;
+    border-radius: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background: rgba(246, 242, 242, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+
+.product-body{
+    width: 27rem;
+}
+
+.ziti{
+    line-height: 2.5;
+    margin-left: 5%;
+    font-size: 1rem;
+    font-family: "华文楷体";
+}
+
+.tziti{
+    line-height: 1;
+    margin-left: 10%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: "华文楷体";
+}
+.ziti4{
+    line-height: 2.5;
+    margin-left: 50%;
+    font-family: "华文楷体";
+    font-size: 1rem;
+}
+
+.hezi{
+    width: 8px;
+    margin-left: 2%;
+}
+
+.hezizi{
+    margin-left: 1%;
+    width:38%;
+}
+.dotted{
+    border-radius:30px;
+    box-shadow:8px 8px 16px #faf1bd;
+    /*padding-left: 5rem;*/
+    object-fit: cover;
+    /*margin: 0rem;*/
+    object-fit: cover;
+    width: 20rem;
+    height: 25rem;
+}
+
+#content2{
+    /*background: #3b7186;*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100px;*/
+}
+
+.module2{
+    height: 40rem;
+    width: 80rem;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 20px;
+    margin-top: 2rem;
+    margin-left:5%;
+    margin-right: 8rem;
+    border-radius: 3rem;
+    border: 1px solid #ccc;
+    background: rgba(246, 242, 242, 0.34);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.product-body{
+    width: 27rem;
+}
+#content3{
+    /*background: #4A00E0;*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100vh;*/
+}
+
+
+
+.box {
+    position: relative;
+    /* width: 1500px;
+    height: 400px; */
+    width: 100%;
+    height: 100%;
+    top: 200px;
+    margin: auto;
+}
+.wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+.image{
+    float: left;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 8px;
+    transition: transform 1s ease-in-out;
+}
+
+/* 左右按钮 */
+.btn{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -25px);
+    width: 1250px;
+    z-index: 999
+}
+.btn .left,
+.btn .right {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+}
+.btn .left {
+    left: 0;
+}
+.btn .right {
+    right: 0;
+}
+.btn span:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* 小圆圈 */
+.point{
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 200px);
+    height: 14px;
+    z-index: 999
+
+}
+.point>li {
+    list-style: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: white;
+    float: left;
+    margin: 0 2px;
+    border: 2px solid rgb(160, 162, 167);
+    box-sizing: border-box;
+}
+.point .current {
+    border: 2px solid rgb(70, 71, 71);
+    background-color: rgb(119, 116, 116);
+}
+
+.banner-container {
+    width: 450px; /* 减半 */
+    height: 400px; /* 减半 */
+    margin: 1rem auto;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5%;
+    /* 注意：移除 object-fit: cover; 因为这是用于替换元素的，如 img 的 srcset 中的图片 */
+}
+
+.banner-container .banner-img-container {
+    width: calc(450px*5); /* 减半，因为每张图片现在占据 50% 的宽度，所以总宽度应该是 2 * (50% * 400px) * 图片数量 */
+    height: 400px; /* 与 .banner-container 高度一致 */
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.banner-container .banner-img-container img {
+    width: 450px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10%;
+}
+
+/* 轮播图圆点样式 */
+.banner-container a {
+    width:24px;
+    height:24px;
+    background:#87c8eb;
+    position: absolute;
+    bottom:1rem;
+    border-radius: 100%;
+    margin:0;
+    z-index: 1;
+}
+
+.banner-container input{
+    width:24px;
+    height:24px;
+    position: absolute;
+    bottom:1rem;
+    margin:0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* 设置导航圆点偏移量（居中布局）*/
+#banner-control-1,#banner-control-1 + .banner-nav-a{
+    left: 30%;
+}
+#banner-control-2,#banner-control-2 + .banner-nav-a{
+    left: 40%;
+}
+#banner-control-3,#banner-control-3 + .banner-nav-a{
+    left: 50%;
+}
+#banner-control-4,#banner-control-4 + .banner-nav-a{
+    left: 60%;
+}
+#banner-control-5,#banner-control-5 + .banner-nav-a{
+    left: 70%;
+}
+
+/* 设置高亮 */
+/*当 input 被选中时 他的兄弟级a标签高亮展示*/
+input:checked + .banner-nav-a {
+    background-color: #ad244f;
+}
+
+/* 设置轮播图动画 */
+#banner-control-1:checked ~ .banner-img-container{
+    transform: translateX(0px);
+}
+#banner-control-2:checked ~ .banner-img-container{
+    transform: translateX(-450px);
+}
+#banner-control-3:checked ~ .banner-img-container{
+    transform: translateX(-900px);
+}
+#banner-control-4:checked ~ .banner-img-container{
+    transform: translateX(-1350px);
+}
+#banner-control-5:checked ~ .banner-img-container{
+    transform: translateX(-1800px);
+}
+
+.banner-container2 {
+    width: 450px; /* 减半 */
+    height: 400px; /* 减半 */
+    margin: 1rem auto;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5%;
+    /* 注意：移除 object-fit: cover; 因为这是用于替换元素的，如 img 的 srcset 中的图片 */
+}
+
+.banner-container2 .banne-img-container2 {
+    width: calc(450px*5); /* 减半，因为每张图片现在占据 50% 的宽度，所以总宽度应该是 2 * (50% * 400px) * 图片数量 */
+    height: 400px; /* 与 .banner-container 高度一致 */
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.banner-container2 .banner-img-container2 img {
+    width: 450px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10%;
+}
+
+/* 轮播图圆点样式 */
+.banner-container2 a {
+    width:24px;
+    height:24px;
+    background:#87c8eb;
+    position: absolute;
+    bottom:1rem;
+    border-radius: 100%;
+    margin:0;
+    z-index: 1;
+}
+
+.banner-container2 input{
+    width:24px;
+    height:24px;
+    position: absolute;
+    bottom:1rem;
+    margin:0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* 设置导航圆点偏移量（居中布局）*/
+#banner-control-21,#banner-control-21 + .banner-nav-a{
+    left: 30%;
+}
+#banner-control-22,#banner-control-22 + .banner-nav-a{
+    left: 40%;
+}
+#banner-control-23,#banner-control-23 + .banner-nav-a{
+    left: 50%;
+}
+#banner-control-24,#banner-control-24 + .banner-nav-a{
+    left: 60%;
+}
+#banner-control-25,#banner-control-25 + .banner-nav-a{
+    left: 70%;
+}
+
+/* 设置高亮 */
+/*当 input 被选中时 他的兄弟级a标签高亮展示*/
+input:checked + .banner-nav-a {
+    background-color: #ad244f;
+}
+
+/* 设置轮播图动画 */
+#banner-control-21:checked ~ .banner-img-container{
+    transform: translateX(0px);
+}
+#banner-control-22:checked ~ .banner-img-container{
+    transform: translateX(-450px);
+}
+#banner-control-23:checked ~ .banner-img-container{
+    transform: translateX(-900px);
+}
+#banner-control-24:checked ~ .banner-img-container{
+    transform: translateX(-1350px);
+}
+#banner-control-25:checked ~ .banner-img-container{
+    transform: translateX(-1800px);
+}
+.banner-container3 {
+    width: 450px; /* 减半 */
+    height: 400px; /* 减半 */
+    margin: 1rem auto;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5%;
+    /* 注意：移除 object-fit: cover; 因为这是用于替换元素的，如 img 的 srcset 中的图片 */
+}
+
+.banner-container3 .banne-img-container3 {
+    width: calc(450px*5); /* 减半，因为每张图片现在占据 50% 的宽度，所以总宽度应该是 2 * (50% * 400px) * 图片数量 */
+    height: 400px; /* 与 .banner-container 高度一致 */
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.banner-container3 .banner-img-container3 img {
+    width: 450px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10%;
+}
+
+/* 轮播图圆点样式 */
+.banner-container3 a {
+    width:24px;
+    height:24px;
+    background:#87c8eb;
+    position: absolute;
+    bottom:1rem;
+    border-radius: 100%;
+    margin:0;
+    z-index: 1;
+}
+
+.banner-container3 input{
+    width:24px;
+    height:24px;
+    position: absolute;
+    bottom:1rem;
+    margin:0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* 设置导航圆点偏移量（居中布局）*/
+#banner-control-31,#banner-control-31 + .banner-nav-a{
+    left: 30%;
+}
+#banner-control-32,#banner-control-32 + .banner-nav-a{
+    left: 40%;
+}
+#banner-control-33,#banner-control-33 + .banner-nav-a{
+    left: 50%;
+}
+#banner-control-34,#banner-control-34 + .banner-nav-a{
+    left: 60%;
+}
+#banner-control-35,#banner-control-35 + .banner-nav-a{
+    left: 70%;
+}
+
+/* 设置高亮 */
+/*当 input 被选中时 他的兄弟级a标签高亮展示*/
+input:checked + .banner-nav-a {
+    background-color: #ad244f;
+}
+
+/* 设置轮播图动画 */
+#banner-control-31:checked ~ .banner-img-container{
+    transform: translateX(0px);
+}
+#banner-control-32:checked ~ .banner-img-container{
+    transform: translateX(-450px);
+}
+#banner-control-33:checked ~ .banner-img-container{
+    transform: translateX(-900px);
+}
+#banner-control-34:checked ~ .banner-img-container{
+    transform: translateX(-1350px);
+}
+#banner-control-35:checked ~ .banner-img-container{
+    transform: translateX(-1800px);
+}
+
+.banner-container4 {
+    width: 450px; /* 减半 */
+    height: 400px; /* 减半 */
+    margin: 1rem auto;
+    overflow: hidden;
+    position: relative;
+    margin-left: 5%;
+    /* 注意：移除 object-fit: cover; 因为这是用于替换元素的，如 img 的 srcset 中的图片 */
+}
+
+.banner-container4 .banne-img-container4{
+    width: calc(4500px*5); /* 减半，因为每张图片现在占据 50% 的宽度，所以总宽度应该是 2 * (50% * 400px) * 图片数量 */
+    height: 400px; /* 与 .banner-container 高度一致 */
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.banner-container4 .banner-img-container4 img {
+    width: 450px;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10%;
+}
+
+/* 轮播图圆点样式 */
+.banner-container4 a {
+    width:24px;
+    height:24px;
+    background:#87c8eb;
+    position: absolute;
+    bottom:1rem;
+    border-radius: 100%;
+    margin:0;
+    z-index: 1;
+}
+
+.banner-container4 input{
+    width:24px;
+    height:24px;
+    position: absolute;
+    bottom:1rem;
+    margin:0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* 设置导航圆点偏移量（居中布局）*/
+#banner-control-41,#banner-control-41 + .banner-nav-a{
+    left: 30%;
+}
+#banner-control-42,#banner-control-42 + .banner-nav-a{
+    left: 40%;
+}
+#banner-control-43,#banner-control-43 + .banner-nav-a{
+    left: 50%;
+}
+#banner-control-44,#banner-control-44 + .banner-nav-a{
+    left: 60%;
+}
+#banner-control-45,#banner-control-45 + .banner-nav-a{
+    left: 70%;
+}
+
+/* 设置高亮 */
+/*当 input 被选中时 他的兄弟级a标签高亮展示*/
+input:checked + .banner-nav-a {
+    background-color: #ad244f;
+}
+
+/* 设置轮播图动画 */
+#banner-control-41:checked ~ .banner-img-container{
+    transform: translateX(0px);
+}
+#banner-control-42:checked ~ .banner-img-container{
+    transform: translateX(-450px);
+}
+#banner-control-43:checked ~ .banner-img-container{
+    transform: translateX(-900px);
+}
+#banner-control-44:checked ~ .banner-img-container{
+    transform: translateX(-1350px);
+}
+#banner-control-45:checked ~ .banner-img-container{
+    transform: translateX(-1800px);
+}
+
+
+
+.tupian{
+    width: 1rem;
+}
+
+
+
+
+.but{
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.ziti4{
+    line-height: 2.5;
+    margin-left: 5%;
+}
+
+
+
+
+#content4{
+    /*background: #4A00E0;*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100vh;*/
+}
+#content5{
+    /*background: #4A00E0;*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100vh;*/
+}
+#content6{
+    /*background: #4A00E0;*/
+    background-image: url("../images/3.1.jpg");
+    background-size: cover;
+    /*height: 100vh;*/
+}
+
+.niceButtonz1{
+    padding: 0.01rem 0.03rem;
+    display: inline-block;
+    margin-left: 40%;
+    font-size: 2rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:rgb(59,122,95);
+    background-color: rgb(205,220,237);
+    border: none;
+    border-radius: 15px;
+    font-family: "STXinwei";
+    box-shadow: 0 15px rgb(231,238,236);
+
+}
+
+.niceButtonz1:hover{
+    background-color: #fbffc9;
+}
+
+.niceButtonz1:active {
+    background-color: #fbffc9;
+    box-shadow: 0 9px rgb(231, 238, 236);
+    transform: translateY(4px);
+}
+
+.hezizix{
+    margin-left: 20%;
+    width:50%;
+}
+
+
+

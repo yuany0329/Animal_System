@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠海长隆海洋王国研学体验</title>
+    <link rel="stylesheet" th:href="@{/css/anz.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" id="current">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="content active" id="content1">
+    <h1 class="h1">珠海长隆海洋王国研学体验来咯！</h1>
+    <div align="center" class="module">
+        <div class="ziti"><br>
+            长隆作为国家级科普教育基地，<br>
+            有各种科普体验和教育活动。<br>
+            如职业体验类的小小保育员，<br>
+            可以在学习知识的同时和家长一起互动的亲子课堂，<br>
+            和科普工作人员可以近距离互动的科普驿站，<br>
+            以及在各园区内热心讲解的饲养员，<br>
+            都可以带给你神奇的科普体验。
+        </div>
+        <div class="hezi"><img src="../images/4.1.jpg" class="dotted"><br></div>
+    </div>
+</div>
+<div class="content" id="content2">
+    <div align="center" class="module1">
+        <div>
+            <div class="banner-container">
+                <!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+                <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+                <!-- 轮播图圆点 -->
+                <input type="radio" name="radio-set" checked="checked" id="banner-control-1">
+                <a class="banner-nav-a" href="#banner01"></a>
+                <input type="radio" name="radio-set" id="banner-control-2">
+                <a class="banner-nav-a" href="#banner02"></a>
+                <!-- 轮播图图片容器 -->
+                <div class="banner-img-container">
+                    <img id="banner01" src="../images/5.4.jpg" alt="" class="banner-img">
+                    <img id="banner02" src="../images/5.5.jpg" alt="" class="banner-img">
+                </div>
+            </div>
+        </div>
+        <div class="hezizi">
+            <div class="tziti">🌈海豚学堂</div>
+            <br>
+            <div class="ziti11">
+                偶遇海豚搁浅要怎么办？科普讲师带领您了解什么是海豚搁浅？通过模拟操作来学习如何救助搁浅的海豚,并深究海豚搁浅的原因，挑战“垃圾分类”小游戏吧！<br>
+                <br>
+                <div class="ziti10" >
+                    🐾进入海豚教室：玻璃窗外近距离观察海豚保育后场<br>
+                    🐾成为鲸豚守护者，学习海洋王国鲸豚救助队的救助经验，利用模型模拟鲸豚救助<br>
+                    🐾通过“垃圾分类”的游戏了解人类对海洋生态环境的影响<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content" id="content3">
+ <div align="center" class="module1">
+        <div class="hezizi">
+            <div class="tziti">🌈科普研学团</div>
+            <br>
+            <div class="ziti4" >
+                🐾在寒冷的南北极里，动物如何使出浑身解数在那里生存？这里将有极地精灵——白鲸与你面对面，为你展示它们的身体防寒妙招！<br>
+                🐾生活在水里，却不在水里呼吸，不是鱼却比鱼游得更快，智力与本领同样超群的“鲸豚家族”，敢来挑战吗？<br>
+                🐾快来和“鳍脚兄弟”们打声招呼！来认识体型庞大的海象和机智可爱的海豹，领略“海中狮子”的霸气风采！<br>
+            </div>
+        </div>
+        <div>
+            <div class="banner-container">
+                <!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+                <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+                <!-- 轮播图圆点 -->
+                <input type="radio" name="radio-set" checked="checked" id="banner-control-1">
+                <a class="banner-nav-a" href="#banner01"></a>
+                <input type="radio" name="radio-set" id="banner-control-2">
+                <a class="banner-nav-a" href="#banner02"></a>
+                <input type="radio" name="radio-set" id="banner-control-3">
+                <a class="banner-nav-a" href="#banner03"></a>
+                <input type="radio" name="radio-set" id="banner-control-4">
+                <a class="banner-nav-a" href="#banner04"></a>
+                <input type="radio" name="radio-set" id="banner-control-5">
+                <a class="banner-nav-a" href="#banner05"></a>
+                <!-- 轮播图图片容器 -->
+                <div class="banner-img-container">
+                    <img id="banner21" src="../images/5.00.jpg" alt="" class="banner2-img">
+                    <img id="banner22" src="../images/5.0.jpg" alt="" class="banner2-img">
+                    <img id="banner23"  src="../images/5.1.jpg" alt="" class="banner2-img">
+                    <img id="banner24" src="../images/5.2.jpg" alt="" class="banner2-img">
+                    <img id="banner25" src="../images/5.3.jpg" alt="" class="banner2-img">
+                </div>
+            </div>
+        </div>
+ </div>
+</div>
+<div class="content" id="content4">
+    <div align="center" class="module1">
+        <div>
+            <div class="banner-container">
+                <!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+                <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+                <!-- 轮播图圆点 -->
+                <input type="radio" name="radio-set" checked="checked" id="banner-control-31">
+                <a class="banner-nav-a" href="#banner21"></a>
+                <input type="radio" name="radio-set" id="banner-control-32">
+                <a class="banner-nav-a" href="#banner22"></a>
+                <input type="radio" name="radio-set" id="banner-control-33">
+                <a class="banner-nav-a" href="#banner23"></a>
+                <input type="radio" name="radio-set" id="banner-control-34">
+                <a class="banner-nav-a" href="#banner34"></a>
+                <input type="radio" name="radio-set" id="banner-control-35">
+                <a class="banner-nav-a" href="#banner35"></a>
+                <!-- 轮播图图片容器 -->
+                <div class="banner-img-container">
+                    <img id="banner31" src="../images/5.8.jpg" alt="" class="banner3-img">
+                    <img id="banner32" src="../images/5.11.jpg" alt="" class="banner3-img">
+                    <img id="banner33"  src="../images/5.10.jpg" alt="" class="banner3-img">
+                    <img id="banner34" src="../images/5.9.jpg" alt="" class="banner3-img">
+                    <img id="banner35" src="../images/5.12.jpg" alt="" class="banner3-img">
+                </div>
+            </div>
+        </div>
+        <div class="hezizi">
+            <div class="tziti">🌈海牛小小保育员</div><br>
+            <div class="ziti9">海牛妈妈的“月子中心”长啥样？<br>
+                海牛宝宝是如何喝母乳的？<br>
+                怀孕和生产后的海牛吃什么？<br>
+                我是海牛小小保育员<br>
+                抢先探访新生海牛宝宝<br>为海牛妈妈准备丰富“月子餐”！<br>
+                探索海牛大家族，学习如何照顾海牛<br>与娇憨“美人鱼”近距离互动~
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content" id="content5">
+    <div align="center" class="module1">
+        <div class="hezizi">
+            <div class="tziti">🌈龟龟探索营</div>
+            <br>
+            <div class="ziti4" >
+                🐾龟龟探索营以探索龟类成长历程为主线的科普活动。<br>
+                🐾参与宾客将通过寻找产卵地、触摸及喂食龟类、检测生活环境等步骤，
+                了解海龟与象龟不同的成长之路，学习如何成为真正的“龟龟守护者”<br>
+            </div>
+        </div>
+        <div>
+            <div class="banner-container">
+                <!-- 这里利用input的checked状态来为a标签添加选中状态 -->
+                <!-- 布局方式采用的是 input + a 标签，不可以添加父级，不然css无法选择到 banner-img-container -->
+                <!-- 轮播图圆点 -->
+                <input type="radio" name="radio-set" checked="checked" id="banner-control-1">
+                <a class="banner-nav-a" href="#banner01"></a>
+                <input type="radio" name="radio-set" id="banner-control-2">
+                <a class="banner-nav-a" href="#banner02"></a>
+                <input type="radio" name="radio-set" id="banner-control-3">
+                <a class="banner-nav-a" href="#banner03"></a>
+                <input type="radio" name="radio-set" id="banner-control-4">
+                <a class="banner-nav-a" href="#banner04"></a>
+                <input type="radio" name="radio-set" id="banner-control-5">
+                <a class="banner-nav-a" href="#banner05"></a>
+                <!-- 轮播图图片容器 -->
+                <div class="banner-img-container">
+                    <img id="banner21" src="../images/5.18.jpg" alt="" class="banner2-img">
+                    <img id="banner22" src="../images/5.15.jpg" alt="" class="banner2-img">
+                    <img id="banner23"  src="../images/5.16.jpg" alt="" class="banner2-img">
+                    <img id="banner24" src="../images/5.17.jpg" alt="" class="banner2-img">
+                    <img id="banner25" src="../images/5.14.jpg" alt="" class="banner2-img">
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+<div class="content" id="content6">
+    <h1 class="h1">珠海长隆海洋王国研学体验来咯！</h1>
+    <div align="center" class="modulew">
+        <div class="hezizix2"><br>
+            <a href="http://localhost:8888/volunteers" class="niceButtonz1">立即点击报名</a>
+        </div>
+        <div class="hezi"><img src="../images/0001.gif" class="dottedw"><br></div>
+    </div>
+</div>
+<script src="js/byyG.js"></script>
+</body>
+</html>

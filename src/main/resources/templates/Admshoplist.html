@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/Admshoplist.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>商铺</title>
+</head>
+<body>
+<div class="title">
+    <h1>商铺</h1>
+</div>
+
+<div class="container">
+
+
+    <div class="search1">
+        <form action="/AdmsearchShops" method="get">
+            <!--        商品名称：<input type="text" name="name">-->
+            <!--        商品类别：<input type="text" name="category">-->
+            <div class="c-select">
+                <div class="c-select1">
+                    商品类别：<select name="category" class="cselect">
+                    <option value="">请选择...</option>
+                    <option value="玩偶">玩偶</option>
+                    <option value="挂件">挂件</option>
+                    <option value="头饰">头饰</option>
+                    <!-- 添加更多选项 -->
+                </select>
+                </div>
+            </div>
+            <div class="z-select">
+                <div class="z-select1">
+                    商品来源：<select name="zfrom" class="zselect">
+                    <option value="">请选择...</option>
+                    <option value="东北动物园">东北动物园</option>
+                    <option value="长隆动物园">长隆动物园</option>
+                    <option value="红山动物园">红山动物园</option>
+                    <!-- 添加更多选项 -->
+                </select>
+                </div>
+            </div>
+
+
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+    <div class="search2">
+        <form id="searchForm" action="/AdmsearchShopsByStr" method="post">
+            <input type="text" name="searchStr" id="searchStr">
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+    <div class="add">
+        <div class="in">
+            <a th:href="@{/AdmaddShop}" class="btn">添加商品</a>
+        </div>
+    </div>
+</div>
+<div class="shoptable">
+    <table class="tableless">
+        <thead>
+        <th class="namelink">编号</th>
+        <th class="namelink">图片</th>
+        <th class="namelink">名称</th>
+        <th class="namelink">类别</th>
+        <th class="namelink">价格</th>
+        <th class="namelink">已售数量</th>
+        <th class="namelink">库存数量</th>
+        <th class="namelink">来源</th>
+        <th class="namelink">介绍</th>
+        <!--        <th class="namelink">编辑</th>-->
+        <th class="namelink">删除</th>
+        </thead>
+        <tr th:each="shop:${shops}">
+            <th th:text="${shop.id}"></th>
+            <th><img class="imgsize" th:src= "${shop.imgurl}"></th>
+            <!--        <th th:text="../img/01.jpg"></th>-->
+            <th th:text="${shop.name}"></th>
+            <!--            <td>-->
+            <!--                <a th:href="@{'/shop/'+${shop.id}}" class="tidlink">[[${shop.name}]]</a>-->
+            <!--            </td>-->
+            <th th:text="${shop.category}"></th>
+            <th th:text="${shop.price}"></th>
+            <th th:text="${shop.sales}"></th>
+            <th th:text="${shop.pnum}"></th>
+            <th th:text="${shop.zfrom}"></th>
+            <th th:text="${shop.introduce}"></th>
+            <!--            <td>-->
+            <!--                <a th:href="@{'/toupdateShop/'+${shop.id}}">编辑</a>-->
+            <!--            </td>-->
+            <td>
+                <a th:href="@{'/deleteShop/'+${shop.id}}" class="btn">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

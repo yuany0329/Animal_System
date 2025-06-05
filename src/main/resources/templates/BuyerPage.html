@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/BuyerPage.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>购买者信息列表</title>
+    <!--  <link rel="stylesheet" th:href="@{/css/style.css}">-->
+</head>
+<body>
+<nav>
+    <ul>
+        <li class="dropdown">
+            <a href="http://localhost:8888/adminProductsPage">动物园门票信息管理<i class="fa fa-caret-down"></i></a>
+        </li>
+        <li><a href="http://localhost:8888/adminorder">门票订单信息管理</a></li>
+        <li><a href="http://localhost:8888/ordersPage">研学信息管理</a></li>
+        <li><a href="http://localhost:8888/AdmshopsPage">商品信息管理</a></li>
+        <li><a href="http://localhost:8888/BuyerPage" id="current">商品订单信息管理</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="search1">
+        <form action="/searchCustomers" method="get">
+            收货人：<input type="text" name="c_name">
+            商品编号：<input type="text" name="t_id">
+            用户ID：<input type="text" name="c_id">
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+    <div class="search2">
+        <form id="searchForm" action="/searchBuyerByStr" method="post">
+            <input type="text" name="searchStr" id="searchStr">
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+</div>
+<div class="buyertable">
+    <table class="tableless">
+        <thead>
+        <th class="namelink">编号</th>
+        <th class="namelink">商品编号</th>
+        <th class="namelink">用户ID</th>
+        <th class="namelink">收货人</th>
+        <th class="namelink">收货人电话</th>
+        <th class="namelink">收货地址</th>
+        <th class="namelink">购买数量</th>
+        <th class="namelink">删除</th>
+        </thead>
+        <!-- 如果需要操作列，可以在这里添加，比如“操作” -->
+        <tr th:each="buyCustomer:${page.list}">
+            <!--    <td><input type="checkbox" class="ids" th:value="${buyCustomer.id}"></td>-->
+            <td th:text="${buyCustomer.id}"></td>
+            <td th:text="${buyCustomer.t_id}"></td> <!-- 假设这是商品编号 -->
+            <td th:text="${buyCustomer.c_id}"></td> <!-- 这里的c_id可能不是收货人，需要根据实际含义调整 -->
+            <td th:text="${buyCustomer.c_name}"></td>
+            <td th:text="${buyCustomer.c_phone}"></td>
+            <td th:text="${buyCustomer.c_address}"></td>
+            <td th:text="${buyCustomer.bnum}"></td>
+            <td>
+                <a th:href="@{'/deleteCustomers/'+${buyCustomer.id}}" class="btn">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="Page">
+    <a th:if="${not page.isFirstPage}" th:href="@{/BuyerPage(start=${page.pageNum-1})}" class="btn">上一页</a>
+    &nbsp;&nbsp;总页数：<span th:text="${page.pages}"></span>&nbsp;
+    &nbsp;&nbsp;当前页：<span th:text="${page.pageNum}"></span>&nbsp;
+    &nbsp;&nbsp;总记录数：<span th:text="${page.total}"></span>&nbsp;
+    &nbsp;&nbsp;当前页记录数：<span th:text="${page.size}"></span>&nbsp;
+    &nbsp;<a th:if="${not page.isLastPage}" th:href="@{/BuyerPage(start=${page.pageNum+1})}" class="btn" >下一页</a>
+
+</div>
+<!--<input type="button" value="批量删除" onclick="dels()">-->
+<!--<script src="js/jquery-3.1.0.min.js"></script>-->
+<!--<script>-->
+<!--  function dels(){-->
+<!--    if(confirm("确定删除所选图书吗？")){-->
+<!--      var ids=""-->
+<!--      $(".ids").each(-->
+<!--              function (i,e){-->
+<!--                if ($(e).is(":checked")){-->
+<!--                  var id=$(e).val();-->
+<!--                  ids+=id+",";-->
+<!--                }-->
+<!--              }-->
+<!--      );-->
+<!--      if(ids.length==0){-->
+<!--        alert("未选择任何图书，请选择删除项")-->
+<!--      }else{-->
+<!--        ids=ids.substr(0,ids.length-1);-->
+<!--        location.href="deleteBooks?id="+ids;//构造出类似deleteBooks?id=1,2,3这样的URL，后台可以用数组接收-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
+</body>
+</html>

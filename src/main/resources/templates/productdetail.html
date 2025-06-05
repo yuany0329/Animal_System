@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>产品详情</title>
+    <link rel="stylesheet" th:href="@{/css/productdetail.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage"  id="current">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="product">
+    <img th:src="${product.img}" class="product-image">
+    <div class="product-body">
+        <h4 th:text="${product.name}"></h4>
+        <p th:text="${product.introduction}"></p>
+        <span>￥</span>
+        <span th:text="${product.price}"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span>已售</span>
+        <span th:text="${product.sales}"></span>
+        <span>/</span>
+        <span>库存</span>
+        <span th:text="${product.pnum}"></span>
+    </div>
+</div>
+<div class="order">
+    <form th:action="@{'/product/'+${product.id}}" method="post">
+        <table class="tablelss">
+            <tr>
+                <td class="font">使用日期</td>
+                <td><input type="date" name="date" class="inp"></td>
+            </tr>
+            <tr>
+                <td class="font">入园时段</td>
+                <td><input type="text" name="time" class="inp"></td>
+            </tr>
+            <tr>
+                <td class="font">购票数量</td>
+                <td><input type="text" name="number" class="inp"></td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="product.id" th:value="${product.id}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="立即预订" class="btn"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<br><br>
+</body>
+</html>

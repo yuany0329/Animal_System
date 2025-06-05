@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>立即购买</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+    <link rel="stylesheet" th:href="@{/css/shopbuy.css}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act" id="current">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<form th:action="@{/addBuy}" method="post" id="buyForm">
+    <input type="hidden" th:value="${shop.id}" name="t_id"> <!-- Hidden field for product ID -->
+    <div class="tablebuy">
+        <table class="tableless">
+            <thead>
+            <tr>
+                <td>编号</td>
+                <td><span th:text="${shop.id}" class="wid"></span></td> <!-- Display product ID -->
+            </tr>
+            <tr>
+                <td>用户ID</td>
+                <td><input type="text" name="c_id" class="inp" ></td> <!-- Input for customer ID -->
+            </tr>
+            <tr>
+                <td>收货人</td>
+                <td><input type="text" name="c_name" class="inp" ></td> <!-- Input for recipient's name -->
+            </tr>
+            <tr>
+                <td>收货人电话</td>
+                <td><input type="text" name="c_phone" class="inp" ></td> <!-- Input for recipient's phone -->
+            </tr>
+            <tr>
+                <td>收货地址</td>
+                <td><input type="text" name="c_address" class="inp"></td> <!-- Input for delivery address -->
+            </tr>
+            <tr>
+                <td>购买数量</td>
+                <td><input type="text" name="bnum" class="inp" ></td> <!-- Input for quantity -->
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" id="orderButton">下单</button> <!-- Button to submit form -->
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="successAlert" class="alert" style="display: none;">
+        <strong>下单成功！</strong> 您的订单已提交!
+        <span class="close" onclick="closeAlert()">×</span>
+    </div>
+</form>
+
+
+
+<script>
+    // Function to handle form submission
+    $('#orderButton').click(function() {
+        if(confirm("确定下单该商品？")) {
+            $.ajax({
+                url: "/addBuy",
+                type: "POST",
+                data: $('#buyForm').serialize(), // Serialize form data
+                success: function () {
+                    $('#successAlert').show(); // Show success message
+                    // Optionally, you can reset the form or reload the page
+                    // $('#buyForm')[0].reset();
+                    // location.reload();
+                },
+                error: function () {
+                    alert("提交失败！");
+                }
+            });
+        }
+    });
+
+    // Function to close success alert
+    function closeAlert() {
+        $('#successAlert').hide();
+    }
+</script>
+
+</body>
+</html>

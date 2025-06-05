@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>产品列表</title>
+    <link rel="stylesheet" th:href="@{/css/productlistPage.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage"  id="current">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="search">
+    <div>
+        <form id="searchForm" action="/searchProductsByStr" method="post">
+            <input type="text" name="searchStr" id="searchStr">
+            <input type="submit" value="搜索" class="btn">
+        </form>
+    </div>
+</div>
+<div class="products">
+    <div class="product-module" th:each="product:${page.list}">
+        <div class="hezi">
+            <img th:src="${product.img}" class="product-image">
+        </div>
+        <div class="product-body">
+            <h4>
+                <a th:href="@{'/product/'+${product.id}}" class="type-a">[[${product.name}]]</a>
+            </h4>
+            <p th:text="${product.introduction}"></p>
+            <div>
+                <span>￥</span>
+                <span th:text="${product.price}"></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span>
+                    <a th:href="@{'/product/'+${product.id}}" class="type-a">[[${product.button}]]</a>
+                </span>
+            </div>
+            <div>
+                <span>已售</span>
+                <span th:text="${product.sales}"></span>
+                <span>/</span>
+                <span>库存</span>
+                <span th:text="${product.pnum}"></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span th:text="${product.area}"></span>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr th:each="product:${page.list}">
+        </tr>
+    </table>
+    <br>
+    <div class="page">
+        <a th:if="${not page.isFirstPage}" th:href="@{/productsPage(start=${page.pageNum-1})}" class="btn">
+            上一页
+        </a>
+        &nbsp;&nbsp;总页数：<span th:text="${page.pages}"></span>&nbsp;&nbsp;
+        &nbsp;&nbsp;当前页：<span th:text="${page.pageNum}"></span>&nbsp;&nbsp;
+        &nbsp;&nbsp;总记录数：<span th:text="${page.total}"></span>&nbsp;&nbsp;
+        &nbsp;&nbsp;当前页记录数：<span th:text="${page.size}"></span>&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        <a th:if="${not page.isLastPage}" th:href="@{/productsPage(start=${page.pageNum+1})}" class="btn">
+            下一页
+        </a>
+        <br><br>
+    </div>
+</div>
+</body>
+</html>

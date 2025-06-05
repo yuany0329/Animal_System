@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bnu.mapper.UserMapper">
+    <!-- 插入用户信息 -->
+    <insert id="insertUser" parameterType="com.bnu.pojo.User">
+        INSERT INTO user (username, password, headpic)
+        VALUES (#{username}, #{password}, #{headpic})
+    </insert>
+
+    <!-- 根据用户名和密码查询用户，确保只返回一个结果 -->
+    <select id="findByUsernameAndPassword" parameterType="map" resultType="com.bnu.pojo.User">
+        SELECT * FROM user WHERE username = #{username} AND password = #{password}
+        <!-- 添加了 LIMIT 1 来确保只返回一条记录 -->
+        LIMIT 1
+    </select>
+
+    <select id="findByToken" parameterType="String" resultType="com.bnu.pojo.User">
+        SELECT * FROM user WHERE token = #{token}
+    </select>
+</mapper>

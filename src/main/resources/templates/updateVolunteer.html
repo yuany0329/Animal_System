@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改志愿者信息</title>
+    <link rel="stylesheet" th:href="@{/css/addstyle.css}">
+</head>
+<body>
+<form th:action="@{/updateVolunteer}" method="post" class="fancy-form">
+    <div class="form-group">
+        <label for="id">ID：</label>
+        <input type="text" id="id" name="id" th:value="${volunteer.id}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" th:value="${volunteer.name}">
+    </div>
+    <div class="form-group">
+        <label for="sex" >性别：</label>
+        <input type="text" id="sex" name="sex" th:value="${volunteer.sex}">
+    </div>
+    <div class="form-group">
+        <label for="age">年龄：</label>
+        <input type="text" id="age" name="age" th:value="${volunteer.age}">
+    </div>
+    <div class="form-group">
+        <label for="Id_Card_Number">身份证号码：</label>
+        <input type="text" id="Id_Card_Number" name="Id_Card_Number" th:value="${volunteer.id_Card_Number}">
+    </div>
+    <div class="form-group">
+        <label for="phone">电话号码：</label>
+        <input type="text" id="phone" name="phone" th:value="${volunteer.phone}">
+    </div>
+    <div class="form-group">
+        <label for="time">时间：</label>
+        <input type="date" id="time" name="time" th:value="${volunteer.time}">
+    </div>
+    <div class="form-group">
+        <label for="hdid">活动名称：</label>
+        <select id="hdid" name="hdid" class="custom-select" required th:value="${volunteer.hdid}">
+            <option value="">请选择活动序号</option>
+            <option value="爱心体验官">爱心体验官</option>
+            <option value="小小保育员">小小保育员</option>
+            <option value="海洋王国研学">海洋王国研学</option>
+        </select>
+    </div>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,190 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("../images/Science.png") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 12.5%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 12.5%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+.alert{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 5px;
+    z-index: 1000; /* 确保弹窗在其他内容之上 */
+    display: none; /* 初始时隐藏 */
+}
+.close{
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close:hover {
+    color: black;
+    text-decoration: none;
+}
+/*.tablebuy{*/
+/*    background: #3b7186;*/
+/*}*/
+/*.tableless{*/
+/*    background: #4CAF50;*/
+/*    !*width:100%;*!*/
+/*    margin-left: 30%;*/
+/*    !*margin-outside: 20%;*!*/
+/*    padding: 10%;*/
+/*}*/
+/*.tableless tr{*/
+/*    font-size: 2rem;*/
+/*}*/
+/*.ta*/
+
+.tablebuy {
+    margin: 5%;
+    margin-left: 18%;
+    padding: 20px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(244, 244, 244, 0.71);
+    /*background: #3b7186;*/
+
+}
+
+.tableless {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.tableless th, .tableless td {
+    margin-left: 20%;
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    line-height: 2;
+}
+
+.wid{
+    margin-left: 35%;
+}
+
+
+.tableless th {
+    background-color: #f2f2f2;
+}
+
+/* 按钮样式 */
+#orderButton {
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 45%;
+}
+
+
+#orderButton:hover {
+    background-color: #45a049;
+}
+
+.inp{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 75%; /* 宽度 */
+    height: 1.8rem; /* 高度 */
+}
+
+.counter-buttons {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.inn{
+    width: 50px;
+    text-align: center;
+}

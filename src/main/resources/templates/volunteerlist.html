@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>志愿者信息列表</title>
+  <link rel="stylesheet" th:href="@{/css/zhu.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="http://localhost:8888/Home">首页</a></li>
+    <li class="dropdown">
+      <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content">
+        <a href="http://localhost:8888/A">奇妙探索季</a>
+        <a href="http://localhost:8888/B">园际缤纷汇</a>
+        <a href="http://localhost:8888/C">佳节悦兽行</a>
+      </div>
+    </li>
+    <li class="dropdown">
+      <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content">
+        <a href="http://localhost:8888/pd">熊猫</a>
+        <a href="http://localhost:8888/tusun">兔狲</a>
+        <a href="http://localhost:8888/zhbht">中华白海豚</a>
+        <a href="http://localhost:8888/xuebao">雪豹</a>
+        <a href="http://localhost:8888/monkey">金丝猴</a>
+        <a href="http://localhost:8888/yze">扬子鳄</a>
+      </div>
+    </li>
+    <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+    <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" id="current">研学体验 <i class="fa fa-caret-down"></i></a>
+      <div class="dropdown-content">
+        <a href="http://localhost:8888/Panda">爱心体验官</a>
+        <a href="http://localhost:8888/byyG">小小保育员</a>
+        <a href="http://localhost:8888/anz">海洋王国研学</a>
+      </div>
+    </li>
+    <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+    <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+  </ul>
+</nav>
+<br><br>
+<table class="tablecss">
+  <thead>
+  <tr>
+    <th>选择</th>
+    <th>id</th>
+    <th>姓名</th>
+    <th>性别</th>
+    <th>年龄</th>
+    <th>身份证号</th>
+    <th>电话号码</th>
+    <th>时间</th>
+    <th>活动名称</th>
+    <th>编辑</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="volunteer:${volunteers}">
+    <th><input type="checkbox" class="ids" th:value="${volunteer.id}"></th>
+    <th th:text="${volunteer.id}"></th>
+    <th>
+      <a th:href="@{'/volunteer/'+${volunteer.id}}">[[${volunteer.name}]]</a>
+    </th>
+    <th th:text="${volunteer.sex}"></th>
+    <th th:text="${volunteer.age}"></th>
+    <th th:text="${volunteer.id_Card_Number}"></th>
+    <th th:text="${volunteer.phone}"></th>
+    <th th:text="${#dates.format(volunteer.time,'yyyy-MM-dd')}"></th>
+    <th th:text="${volunteer.hdid}"></th>
+    <th>
+      <a th:href="@{'/toupdatevolunteer/'+${volunteer.id}}" class="niceButton1">修改</a>
+      <a th:href="@{'/deleteVolunteer/'+${volunteer.id}}" class="niceButton1">删除</a>
+    </th>
+  </tr>
+  </tbody>
+</table>
+<br>
+<br>
+
+<!--批量添加志愿者信息-->
+<span class="button-container">
+<a th:href="@{/addVolunteer}" class="niceButton2">添加信息</a>
+<input type="button" value="提交" onclick="ins()" class="niceButton2">
+</span>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script>
+  function ins(){
+    if(confirm("确定报名该志愿活动？")){
+      var ids = "";
+      $(".ids").each(function (i, e) {
+        if ($(e).is(":checked")) {
+          var id = $(e).val();
+          ids += id + ",";
+        }
+      });
+      if (ids.length == 0) {
+        alert("未选择任何志愿者信息，请选择志愿者！");
+      } else {
+        ids = ids.substr(0, ids.length - 1);
+        $.ajax({
+          url: "/insertVolunteers",
+          type: "POST",
+          data: { ids: ids },
+          success: function () {
+            alert("提交成功！");
+            location.reload();
+          },
+          error: function () {
+            alert("提交失败！");
+          }
+        });
+      }
+    }
+  }
+</script>
+</body>
+</html>

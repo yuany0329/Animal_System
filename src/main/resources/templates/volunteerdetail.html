@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>志愿者详情</title>
+    <link rel="stylesheet" th:href="@{/css/zhu.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" id="current">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<table class="volunteer">
+    <tr>
+        <td>编号</td>
+        <td th:text="${volunteer.id}"></td>
+    </tr>
+    <tr>
+        <td>姓名</td>
+        <td th:text="${volunteer.name}"></td>
+    </tr>
+    <tr>
+        <td>性别</td>
+        <td th:text="${volunteer.sex}"></td>
+    </tr>
+    <tr>
+        <td>年龄</td>
+        <td th:text="${volunteer.age}"></td>
+    </tr>
+    <tr>
+        <td>身份证号</td>
+        <td th:text="${volunteer.id_Card_Number}"></td>
+    </tr>
+    <tr>
+        <td>电话号码</td>
+        <td th:text="${volunteer.phone}"></td>
+    </tr>
+    <tr>
+        <td>时间</td>
+        <td th:text="${#dates.format(volunteer.time,'YYYY-MM-dd')}"></td>
+    </tr>
+    <tr>
+        <td>活动名称</td>
+        <td th:text="${volunteer.hdid}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/Admaddshop.css}">
+<head>
+  <meta charset="UTF-8">
+  <title>图书详情</title>
+</head>
+<body>
+<form th:action="@{/AdmaddShop}" method="post">
+  <div class="table">
+    <table class="tableless">
+      <tr><h1>增加商品</h1></tr>
+      <tr>
+        <td>图片</td>
+        <td><input type="text" name="imgurl" class="inp"></td>
+      </tr>
+      <tr>
+        <td>名称</td>
+        <td><input type="text" name="name" class="inp"></td>
+      </tr>
+      <tr>
+        <td>类别</td>
+        <td><input type="text" name="category" class="inp"></td>
+      </tr>
+      <tr>
+        <td>价格</td>
+        <td><input type="text" name="price" class="inp"></td>
+      </tr>
+      <tr>
+        <td>已售数量</td>
+        <td><input type="text" name="sales" class="inp"></td>
+      </tr>
+      <tr>
+        <td>库存数量</td>
+        <td><input type="text" name="pnum" class="inp"></td>
+      </tr>
+      <tr>
+        <td>来源</td>
+        <td><input type="text" name="zfrom" class="inp"></td>
+      </tr>
+      <tr>
+        <td>简介</td>
+        <td><input type="text" name="introduce" class="inp"></td>
+      </tr>
+      <tr>
+
+        <td><div class="button"><input type="submit"value="添加" class="addButton"></div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+</body>
+</html>

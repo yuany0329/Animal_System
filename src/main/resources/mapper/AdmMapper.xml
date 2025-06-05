@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bnu.mapper.AdmMapper">
+    <!--    查询全部商品-->
+    <select id="AdmfindAllShops" resultType="Shop">
+        select *
+        from t_shop
+    </select>
+
+    <!--    根据ID查询商品-->
+    <select id="AdmfindShopById" resultType="Shop">
+        select *
+        from t_shop
+        where id=#{id}
+    </select>
+
+    <insert id="AdmaddShop" useGeneratedKeys="true" keyProperty="id">
+        insert into t_shop
+        values(null,#{imgurl},#{name},#{category},#{price},#{sales},#{pnum},#{zfrom},#{introduce})
+    </insert>
+
+    <!--    <update id="updateShop" parameterType="Shop">-->
+    <!--        update t_shop set-->
+    <!--                          imgurl= #{imgurl},name=#{name},category=#{category},price=#{price},sales=#{sales},pnum=#{pnum},-->
+    <!--                          zfrom=#{zfrom},introduce#{introduce}-->
+    <!--        where id=#{id}-->
+    <!--    </update>-->
+
+    <delete id="deleteShop" parameterType="int">
+        delete from t_shop where id=#{id}
+    </delete>
+
+    <!--        多条件查询-->
+    <select id="AdmsearchShops" resultType="Shop">
+        select * from t_shop
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="category != null and category != ''">
+                AND category LIKE CONCAT('%', #{category}, '%')
+            </if>
+            <if test="zfrom != null and zfrom != ''">
+                AND zfrom LIKE CONCAT('%', #{zfrom}, '%')
+            </if>
+        </where>
+    </select>
+    <!--    模糊搜索-->
+    <select id="AdmsearchShopsByStr" parameterType="java.lang.String" resultType="shop">
+        select * from t_shop
+        where 1=1
+        <if test="searchStr!=null and searchStr!=''">
+            AND name like CONCAT('%',#{searchStr},'%')
+            or introduce like CONCAT('%',#{searchStr},'%')
+            or category like CONCAT('%',#{searchStr},'%')
+            or zfrom like CONCAT('%',#{searchStr},'%')
+        </if>
+    </select>
+</mapper>

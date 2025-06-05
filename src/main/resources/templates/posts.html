@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录成功</title>
+    <!-- 引入Layui的CSS -->
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- 自定义样式 -->
+    <style>
+        body{
+            background: url("https://telegraph-image-92x.pages.dev/file/da8bc6e13f24cb916bcb1.jpg");
+            background-size: cover;
+        }
+
+        nav {
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #4a6d42;
+        }
+
+        nav li {
+            float: left;
+            width: 12.5%;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+
+        #current{
+            background-color: #faf1bd;
+            color: black;
+        }
+
+        /* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+        nav li a:hover {
+            background-color: #faf1bd;
+            color: black;
+        }
+
+        /* 下拉框样式 */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 12.5%;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* 悬停时显示下拉框 */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 可选：为下拉箭头添加一些样式 */
+        .dropdown a i {
+            margin-left: 5px;
+        }
+        /* 居中标题栏 */
+        .layui-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 13%;
+            left: 25%;
+            width: 50%;
+            background-color: #393D49;
+            z-index: 1000;
+            padding: 1px 10px;
+            border-radius: 30px; /* 设置圆角 */
+        }
+        .layui-header .logo img {
+            height: 40px;
+            border-radius: 50%; /* 圆形logo */
+        }
+        .layui-header .title {
+            flex-grow: 1;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 添加文字阴影 */
+        }
+        .layui-header .avatar img {
+            height: 40px;
+            border-radius: 50%; /* 圆形头像 */
+            border: 2px solid white; /* 白色边框 */
+        }
+        /* 使container居中并设置宽度 */
+        .container-center {
+            width: 80%;
+            max-width: 1200px; /* 可选：设置最大宽度 */
+            margin: 0 auto; /* 水平居中 */
+            position: fixed; /* 固定位置 */
+            top: 15%; /* 距离顶部50px，留出标题栏的高度 */
+            bottom: 6%;
+            left: 50%; /* 从左边开始，占页面宽度的50% */
+            transform: translateX(-50%); /* 向左移动自身宽度的50%，实现水平居中 */
+            overflow: hidden; /* 隐藏溢出的内容 */
+            z-index: 10; /* 确保在页面内容上方 */
+            padding: 20px; /* 可选：给容器添加一些内边距 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 可选：添加阴影效果 */
+            background-image: url('https://telegraph-image-92x.pages.dev/file/f119465bc82b28454aa58.png'); /* 背景图片路径 */
+            background-size: cover; /* 背景图片完全覆盖 */
+            background-position: center; /* 背景图片居中显示 */
+            background-repeat: no-repeat; /* 背景图片不重复 */
+            border-radius: 12px;
+        }
+        /* 左侧栏和右侧栏的样式 */
+        .left-side, .right-side {
+            padding: 20px;
+            box-sizing: border-box;
+            height: 75vh; /* 高度占满视口 */
+        }
+        .left-side {
+            position: absolute; /* 绝对定位 */
+            left: 2%;
+            background-color: rgba(242, 242, 242, 0); /* 浅灰色背景 */
+            width: 25%; /* 左侧栏宽度 */
+        }
+        .right-side {
+            margin-left: 28%; /* 右侧栏左边距等于左侧栏宽度 */
+            width: 77%;
+            background-color: rgba(255, 255, 255, 0); /* 白色背景 */
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 35%;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+        }
+        .content div {
+            margin: 10px 0;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 文字阴影 */
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.2); /* 背景透明度 */
+            border-radius: 10px; /* 圆角 */
+            transition: transform 0.3s ease; /* 过渡效果 */
+        }
+        .content div:hover {
+            transform: scale(1.05); /* 鼠标悬停时放大 */
+        }
+        .top1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Adjust height as needed */
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 华文行楷,sans-serif;
+        }
+        .typewriter {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white; /* Cursor effect */
+            animation: typing 4s steps(20, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 50%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        .layui-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .layui-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .layui-card-header {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            padding: 15px;
+            position: relative;
+        }
+        .layui-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 5px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .layui-form-label {
+            color: #56ab2f;
+            font-weight: bold;
+        }
+        .layui-input-block input, .layui-input-block textarea {
+            border: 2px solid #56ab2f;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+        .layui-input-block input:focus, .layui-input-block textarea:focus {
+            border-color: #a8e063;
+        }
+        .layui-btn {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .layui-btn:hover {
+            background: linear-gradient(to right, #a8e063, #56ab2f);
+            transform: translateY(-5px);
+        }
+
+        .post-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .post-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .post-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .user-avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #56ab2f;
+        }
+        .post-content {
+            margin-bottom: 35px;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+        .post-tag {
+            background: #56ab2f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .post-actions {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .post-actions span {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+        }
+        .post-actions i {
+            margin-right: 5px;
+            color: #56ab2f;
+        }
+        .img-container {
+            width: 150px; /* 容器宽度 */
+            margin: 20px auto; /* 外边距 */
+        }
+
+        .img-container img {
+            width: 100%; /* 图片宽度 */
+            height: auto; /* 图片高度自适应 */
+            transition: all 0.3s ease; /* 平滑过渡效果 */
+        }
+
+        .img-container img:hover {
+            transform: translateY(-5px) scale(1.05); /* 鼠标悬浮时上移和放大 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 鼠标悬浮时增加阴影 */
+        }
+
+        .fixed-bottom-right {
+            position: fixed; /* 固定定位 */
+            right: 20px; /* 距离右边距 */
+            bottom: 10px; /* 距离下边距 */
+            z-index: 1000; /* 确保图片在最顶层 */
+            width: 150px; /* 图片宽度，根据需要调整 */
+            height: auto; /* 图片高度自适应 */
+        }
+
+        .avatar-icon {
+            width: 40px; /* 与原来图片的高度一致 */
+            height: 40px;
+            line-height: 40px; /* 行高与图标大小一致，用于垂直居中 */
+            text-align: center; /* 文本水平居中 */
+            border-radius: 50%; /* 圆形边框 */
+            background-color: #007bff; /* 背景颜色，可根据需要调整 */
+            color: white; /* 图标颜色 */
+            font-size: 20px; /* FontAwesome图标大小 */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts" id="current">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<img src="https://telegraph-image-92x.pages.dev/file/63421fe67b9fe47b3c536.gif" alt="Fixed Image" class="fixed-bottom-right">
+<!-- 顶部标题栏 -->
+<!--<div class="layui-header">-->
+<!--    <div class="logo">-->
+<!--        <img src="https://telegraph-image-92x.pages.dev/file/9726ca40a81a35d2b01b8.jpg" alt="Logo" height="40">-->
+<!--    </div>-->
+<!--    <div class="title">-->
+<!--        <h1>动物论坛🎨</h1>-->
+<!--    </div>-->
+<!--    <div class="avatar">-->
+<!--        <i class="fas fa-user avatar-icon"></i>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;<form action="/personpage" method="get">-->
+<!--        <div class="avatar">-->
+<!--            <button type="submit" style="background: none; border: none; padding: 0;">-->
+<!--                <i class="fas fa-user avatar-icon"></i>-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </form>&ndash;&gt;-->
+<!--</div>-->
+
+<!-- 内容区域 -->
+<div class="container-center">
+    <!-- 左侧栏 -->
+    <div class="left-side layui-col-xs3 layui-col-sm3">
+        <div class="layui-row">
+            <div class="layui-col header top1">
+                <span class="typewriter">动物论坛</span>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col content">
+                <!-- 标签列表，点击时触发筛选功能 -->
+                <div class="tag all-tags" id="all-tags">所有标签</div>
+                <div class="tag" th:id="'tag-宠物养护'" th:text="宠物养护">宠物养护</div>
+                <div class="tag" th:id="'tag-野生动物'" th:text="野生动物">野生动物</div>
+                <div class="tag" th:id="'tag-摸鱼专区'" th:text="摸鱼专区">摸鱼专区</div>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧栏 -->
+    <div class="right-side layui-col-xs9 layui-col-sm9">
+        <!-- 发帖部分 -->
+        <div class="layui-card">
+            <div class="layui-card-header">发帖</div>
+            <div class="layui-card-body">
+                <form action="/posts" method="post" class="layui-form">
+                    <div class="layui-form-item form-group">
+                        <label for="title" class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="form-control" id="title" name="title" required lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item form-group">
+                        <label for="tag-select" class="layui-form-label">标签</label>
+                        <div class="layui-input-block">
+                            <!-- 隐藏的input字段，用于存储选中的标签值 -->
+                            <input type="hidden" id="tag1" name="tag1">
+                            <!-- 下拉选择框 -->
+                            <select class="form-control" id="tag" name="tag" required lay-verify="required">
+                                <option value="">请选择一个标签</option>
+                                <option value="宠物养护">宠物养护</option>
+                                <option value="野生动物">野生动物</option>
+                                <option value="摸鱼专区">摸鱼专区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item form-group layui-form-text">
+                        <label for="description" class="layui-form-label">内容</label>
+                        <div class="layui-input-block">
+                            <textarea class="form-control" id="description" name="description" required lay-verify="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button type="submit" class="layui-btn btn btn-primary" style="padding-bottom:30px" lay-submit>发帖子</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="img-container">
+            <!-- 插入图片 -->
+            <img src="https://telegraph-image-92x.pages.dev/file/c051ce3a88932a32f785a.png" alt="图片描述">
+        </div>
+
+        <!-- 帖子列表 -->
+        <div class="post-list">
+            <!-- 帖子项 -->
+            <div th:each="post : ${posts}" class="post-item">
+                <div class="post-header">
+                    <img th:src="${post.user.headpic}" alt="User headpic" class="user-avatar" />
+                    <span th:text="${post.user.username}" class="user-name fw-bold">Username</span>
+                </div>
+                <div class="post-content">
+                    <div class="post-title" th:text="${post.title}">Post Title</div>
+                    <p th:text="${post.description}">Post Description</p>
+                </div>
+                <div class="post-meta">
+                    <span class="post-tag" th:text="${post.tag}">标签</span> <!-- 帖子标签 -->
+                </div>
+                <div class="post-actions">
+                    <span class="icon-comments"><i class="fas fa-comments"></i> <span th:text="${post.commentCount}">0</span></span>
+                    <span class="icon-views"><i class="fas fa-eye"></i> <span th:text="${post.viewCount}">0</span></span>
+                    <span class="icon-likes"><i class="fas fa-thumbs-up"></i> <span th:text="${post.likeCount}">0</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 引入Layui的JS -->
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form,
+            layer = layui.layer;
+
+        // 监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg('提交表单');
+            // 这里可以添加 AJAX 提交表单的代码
+            return false; // 阻止表单跳转
+        });
+    });
+
+</script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有的标签元素
+        var tags = document.querySelectorAll('.tag');
+        var allTags = document.getElementById('all-tags');
+        var filteredTag = null; // 用于记录当前选中的标签，null表示显示所有帖子
+
+        // 为每个标签添加点击事件
+        tags.forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                var tagText = this.textContent.trim();
+                // 如果点击的是"所有标签"，则重置筛选
+                if (tagText === '所有标签') {
+                    filteredTag = null;
+                } else {
+                    filteredTag = tagText;
+                }
+                // 筛选帖子列表
+                filterPosts(filteredTag);
+            });
+        });
+
+        // 筛选帖子的函数
+        function filterPosts(selectedTag) {
+            // 获取帖子列表中所有帖子项
+            var postItems = document.querySelectorAll('.post-item');
+            // 根据选中的标签筛选帖子
+            postItems.forEach(function(postItem) {
+                var postTag = postItem.querySelector('.post-tag').textContent.trim();
+                // 根据帖子标签是否与选中的标签匹配或是否显示所有帖子来显示或隐藏帖子
+                postItem.style.display = (selectedTag === null || postTag === selectedTag) ? 'block' : 'none';
+            });
+        }
+    });
+</script>
+</html>

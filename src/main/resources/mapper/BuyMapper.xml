@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bnu.mapper.BuyMapper">
+
+    <!--    <select id="findBuyById" parameterType="Integer" resultMap="IdCardWithBuyResult">-->
+    <!--        select *-->
+    <!--        from t_buy-->
+    <!--        where id = #{id}-->
+    <!--    </select>-->
+
+    <!--    &lt;!&ndash;    一对一关联映射 嵌套查询 需要多条SQL&ndash;&gt;-->
+    <!--    <resultMap id="IdCardWithBuyResult" type="BuyCustomer">-->
+    <!--        <id property="id" column="id"></id>-->
+    <!--        <result property="c_id" column="c_id"></result>-->
+    <!--        <result property="c_name" column="c_name"></result>-->
+    <!--        <result property="c_phone" column="c_phone"></result>-->
+    <!--        <result property="c_address" column="c_address"></result>-->
+    <!--        <result property="bnum" column="bnum"></result>-->
+    <!--        <association property="product" column="t_id" javaType="Shop"-->
+    <!--                     select="com.cupk.mapper.shopCardMapper.findShopById"></association>-->
+    <!--    </resultMap>-->
+
+    <!--    添加一条用户购买信息-->
+    <insert id="addBuy" useGeneratedKeys="true" keyProperty="id">
+        insert into t_buy
+        values(null,#{t_id},#{c_id},#{c_name},#{c_phone},#{c_address},#{bnum})
+    </insert>
+</mapper>

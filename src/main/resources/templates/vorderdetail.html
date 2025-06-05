@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>志愿者详情</title>
+</head>
+<body>
+<table border="I" align="center">
+    <tr>
+        <td>编号</td>
+        <td th:text="${order.id}"></td>
+    </tr>
+    <tr>
+        <td>姓名</td>
+        <td th:text="${order.name}"></td>
+    </tr>
+    <tr>
+        <td>性别</td>
+        <td th:text="${order.sex}"></td>
+    </tr>
+    <tr>
+        <td>年龄</td>
+        <td th:text="${order.age}"></td>
+    </tr>
+    <tr>
+        <td>身份证号</td>
+        <td th:text="${order.id_Card_Number}"></td>
+    </tr>
+    <tr>
+        <td>电话号码</td>
+        <td th:text="${order.phone}"></td>
+    </tr>
+    <tr>
+        <td>时间</td>
+        <td th:text="${#dates.format(order.time,'YYYY-MM-dd')}"></td>
+    </tr>
+    <tr>
+        <td>活动名称</td>
+        <td th:text="${order.hdid}"></td>
+    </tr>
+</table>
+</body>
+</html>

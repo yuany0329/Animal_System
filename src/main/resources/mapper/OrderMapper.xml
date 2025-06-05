@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bnu.mapper.OrderMapper">
+    <select id="findAllOrders" resultMap="OrderWithProductResult">
+        select *
+        from bt_orders
+    </select>
+
+    <delete id="deleteOrder" parameterType="int">
+        delete from bt_orders where id=#{id}
+    </delete>
+
+    <select id="searchOrdersByStr" parameterType="String" resultMap="OrderWithProductResult">
+        select *
+        from bt_orders o
+        inner join bt_product p on o.zoo_id = p.id
+        where 1=1
+        <if test="searchStr!=null and searchStr!=''">
+            AND o.date like '%' #{searchStr} '%'
+            or o.time like '%' #{searchStr} '%'
+            or o.number like '%' #{searchStr} '%'
+            or p.name like '%' #{searchStr} '%'
+            or p.area like '%' #{searchStr} '%'
+        </if>
+    </select>
+
+    <select id="findOrderById" parameterType="Integer" resultMap="OrderWithProductResult">
+        select *
+        from bt_orders
+        where id=#{id}
+    </select>
+
+    <resultMap id="OrderWithProductResult" type="Order">
+        <id property="id" column="id"></id>
+        <result property="date" column="date"></result>
+        <result property="number" column="number"></result>
+        <result property="time" column="time"></result>
+        <association property="product" column="zoo_id" javaType="Product"
+                     select="com.cupk.mapper.ProductMapper.findProductById"></association>
+    </resultMap>
+
+    <insert id="addOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into bt_orders
+        values(NULL,#{date},#{time},#{number},#{product.id})
+    </insert>
+</mapper>

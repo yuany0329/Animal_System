@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/zhu.css}">
+</head>
+<body>
+<table id="table-3">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>身份证号</td>
+        <td>电话号码</td>
+        <td>时间</td>
+        <td>活动名称</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order:${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.name}"></td>
+        <td th:text="${order.sex}"></td>
+        <td th:text="${order.age}"></td>
+        <td th:text="${order.id_Card_Number}"></td>
+        <td th:text="${order.phone}"></td>
+        <td th:text="${#dates.format(order.time,'yyyy-MM-dd')}"></td>
+        <td th:text="${order.hdid}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

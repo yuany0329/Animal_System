@@ -1,0 +1,186 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 20%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 20%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+
+#searchForm{
+    flex: 5;
+}
+
+#searchStr{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 60%; /* 宽度 */
+    height: 1.8rem; /* 高度 */
+}
+
+.btn{
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.page{
+    padding-top: 0.3rem;
+    padding-left: 20%;
+    background: rgba(168, 219, 168, 0.14);
+}
+
+.button{
+    padding: 0.3rem;
+    display: flex;
+    background: rgba(168, 219, 168, 0.14);
+}
+
+#delete{
+    margin-left: 30%;
+}
+
+#add{
+    flex: 3;
+    margin-left: 20%;
+    margin-right: 25%;
+}
+
+.imgsize{
+    width: 8rem; /* 或者你想要的任何宽度 */
+    height: 8rem; /* 或者你想要的任何高度 */
+    object-fit: cover; /* 保持图片的宽高比，同时填充整个容器 */
+}
+
+/* Border styles */
+.tableless thead{
+    background-color: #4CAF50;
+}
+
+.tableless tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(235, 242, 224);
+}
+.tableless {
+    width: 100%;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(168, 219, 168, 0.14);
+}
+
+/* Padding and font style */
+.tableless td, .tableless th {
+    /*padding: 5px 10px;*/
+    font-size: 1.2rem;
+    /*padding: 1%;*/
+    text-align: center;
+    color: rgb(59, 113, 134);
+}
+.namelink{
+    background: rgba(168, 219, 168, 0.65);
+}
+
+/* Alternating background colors */
+.tableless tr:nth-child(even) {
+    background: rgba(168, 219, 168, 0.25)
+}
+.tableless tr:nth-child(odd) {
+    background: #FFF
+}
+.tableless tr:hover{
+    background-color: rgba(204, 204, 204, 0.14);
+}

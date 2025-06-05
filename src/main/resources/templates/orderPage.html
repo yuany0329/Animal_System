@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已报名记录</title>
+    <link rel="stylesheet" th:href="@{/css/zhu1.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <a href="http://localhost:8888/adminProductsPage">动物园门票信息管理</a>
+        </li>
+        <li><a href="http://localhost:8888/adminorder">门票订单信息管理</a></li>
+        <li><a href="http://localhost:8888/ordersPage" id="current">研学信息管理</a></li>
+        <li><a href="http://localhost:8888/AdmshopsPage">商品信息管理</a></li>
+        <li><a href="http://localhost:8888/BuyerPage">商品订单信息管理</a></li>
+    </ul>
+</nav>
+<br>
+<br>
+
+<div class="search-container">
+    <form action="/searchVOrders" method="get" class="search-form">
+        <label for="name">报名者姓名：</label>
+        <input type="text" name="name" id="name" class="inp1">
+        <select name="hdid" class="inp2">
+            <option value="">请选择活动名称...</option>
+            <option value="爱心体验官">爱心体验官</option>
+            <option value="小小保育员">小小保育员</option>
+            <option value="海洋王国研学">海洋王国研学</option>
+        </select>
+        <input type="submit" value="搜索" class="addButton">
+    </form>
+</div>
+<div>
+    <form id="searchForm" action="/searchVOrdersByStr" method="post" >
+        模糊搜索：<input type="text" name="searchStr" id="searchStr" class="inp3">
+        <input type="submit" value="搜索" class="addButton">
+    </form>
+</div>
+<br>
+<br>
+<table class="tablecss">
+    <thead>
+    <tr>
+        <th>选择</th>
+        <th>id</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>身份证号</th>
+        <th>电话号码</th>
+        <th>时间</th>
+        <th>活动名称</th>
+        <th>编辑</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order:${page.list}">
+        <td><input type="checkbox" class="ids" th:value="${order.id}"></td>
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.name}"></td>
+        <td th:text="${order.sex}"></td>
+        <td th:text="${order.age}"></td>
+        <td th:text="${order.Id_Card_Number}"></td>
+        <td th:text="${order.phone}"></td>
+        <td th:text="${#dates.format(order.time,'yyyy-MM-dd')}"></td>
+        <td th:text="${order.hdid}"></td>
+        <td>
+            <a th:href="@{'/toupdatevorder/'+${order.id}}" class="niceButton1">修改</a>
+            <a th:href="@{'/deleteOrder/'+${order.id}}" class="niceButton1">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<span class="button-container">
+<a th:href="@{/addOrder}" class="niceButton2">添加信息</a>
+<input type="button" value="批量删除" onclick="dels()" class="niceButton2">
+</span>
+<br>
+<br>
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script>
+    function dels(){
+        if(confirm("确定删除所选志愿者吗？")){
+            var ids="";
+            $(".ids").each(
+                function (i,e){
+                    if($(e).is(":checked")){
+                        var id=$(e).val();
+                        ids+=id+",";
+                    }
+                }
+            );
+            if(ids.length==0){
+                alert("未选择任何志愿者，请选择删除项！")
+            }else{
+                ids=ids.substr(0,ids.length-1);
+                location.href="deleteOrders?id="+ids;//构造出类似deleteBooks？id=1,2,3这样的URL，后台可用数组接收
+            }
+        }
+    }
+</script>
+<div align="center">
+    <a th:if="${not page.isFirstPage}" th:href="@{/ordersPage(start=${page.pageNum-1})}" class="addButtonx">上一页</a>
+    &nbsp;&nbsp;总页数：<span th:text="${page.pages}"></span>&nbsp;&nbsp;
+    &nbsp;&nbsp;当前页：<span th:text="${page.pageNum}"></span>&nbsp;&nbsp
+    &nbsp;&nbsp;总记录数：<span th:text="${page.total}"></span>&nbsp;&nbsp;
+    &nbsp;&nbsp;当前页记录数：<span th:text="${page.size}"></span>&nbsp;&nbsp;
+    &nbsp;&nbsp; <a th:if="${not page.isLastPage}" th:href="@{/ordersPage(start=${page.pageNum+1})}" class="addButtonx">下一页</a>
+</div>
+</body>
+</html>

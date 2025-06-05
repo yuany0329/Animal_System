@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录成功</title>
+    <!-- 引入Layui的CSS -->
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- 自定义样式 -->
+    <style>
+        /* 居中标题栏 */
+        .layui-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 3%;
+            left: 25%;
+            width: 50%;
+            background-color: #393D49;
+            z-index: 1000;
+            padding: 1px 10px;
+            border-radius: 30px; /* 设置圆角 */
+        }
+        .layui-header .logo img {
+            height: 40px;
+            border-radius: 50%; /* 圆形logo */
+        }
+        .layui-header .title {
+            flex-grow: 1;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 添加文字阴影 */
+        }
+        .layui-header .avatar img {
+            height: 40px;
+            border-radius: 50%; /* 圆形头像 */
+            border: 2px solid white; /* 白色边框 */
+        }
+        /* 使container居中并设置宽度 */
+        .container-center {
+            width: 80%;
+            max-width: 1200px; /* 可选：设置最大宽度 */
+            margin: 0 auto; /* 水平居中 */
+            position: fixed; /* 固定位置 */
+            top: 15%; /* 距离顶部50px，留出标题栏的高度 */
+            bottom: 6%;
+            left: 50%; /* 从左边开始，占页面宽度的50% */
+            transform: translateX(-50%); /* 向左移动自身宽度的50%，实现水平居中 */
+            overflow: hidden; /* 隐藏溢出的内容 */
+            z-index: 10; /* 确保在页面内容上方 */
+            padding: 20px; /* 可选：给容器添加一些内边距 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 可选：添加阴影效果 */
+            background-image: url('https://telegraph-image-92x.pages.dev/file/f119465bc82b28454aa58.png'); /* 背景图片路径 */
+            background-size: cover; /* 背景图片完全覆盖 */
+            background-position: center; /* 背景图片居中显示 */
+            background-repeat: no-repeat; /* 背景图片不重复 */
+        }
+        /* 左侧栏和右侧栏的样式 */
+        .left-side, .right-side {
+            padding: 20px;
+            box-sizing: border-box;
+            height: 75vh; /* 高度占满视口 */
+        }
+        .left-side {
+            position: absolute; /* 绝对定位 */
+            left: 2%;
+            background-color: rgba(242, 242, 242, 0); /* 浅灰色背景 */
+            width: 25%; /* 左侧栏宽度 */
+        }
+        .right-side {
+            margin-left: 28%; /* 右侧栏左边距等于左侧栏宽度 */
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0); /* 白色背景 */
+            overflow-y: auto; /* 允许垂直滚动 */
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 35%;
+            flex-direction: column;
+            height: 100%;
+            padding: 20px;
+        }
+        .content div {
+            margin: 10px 0;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 文字阴影 */
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.2); /* 背景透明度 */
+            border-radius: 10px; /* 圆角 */
+            transition: transform 0.3s ease; /* 过渡效果 */
+        }
+        .content div:hover {
+            transform: scale(1.05); /* 鼠标悬停时放大 */
+        }
+        .top1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Adjust height as needed */
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 华文行楷,sans-serif;
+        }
+        .typewriter {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white; /* Cursor effect */
+            animation: typing 4s steps(20, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 50%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        .layui-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .layui-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .layui-card-header {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            padding: 15px;
+            position: relative;
+        }
+        .layui-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 5px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        .layui-form-label {
+            color: #56ab2f;
+            font-weight: bold;
+        }
+        .layui-input-block input, .layui-input-block textarea {
+            border: 2px solid #56ab2f;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+        .layui-input-block input:focus, .layui-input-block textarea:focus {
+            border-color: #a8e063;
+        }
+        .layui-btn {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .layui-btn:hover {
+            background: linear-gradient(to right, #a8e063, #56ab2f);
+            transform: translateY(-5px);
+        }
+
+        .post-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .post-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .post-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .user-avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #56ab2f;
+        }
+        .post-content {
+            margin-bottom: 35px;
+        }
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+        .post-tag {
+            background: #56ab2f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .post-actions {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .post-actions span {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+        }
+        .post-actions i {
+            margin-right: 5px;
+            color: #56ab2f;
+        }
+    </style>
+</head>
+<body>
+<!-- 顶部标题栏 -->
+<div class="layui-header">
+    <div class="logo">
+        <img src="https://telegraph-image-92x.pages.dev/file/9726ca40a81a35d2b01b8.jpg" alt="Logo" height="40">
+    </div>
+    <div class="title">
+        <h1>登录成功！</h1>
+    </div>
+    <div class="avatar">
+        <img src="https://telegraph-image-92x.pages.dev/file/9726ca40a81a35d2b01b8.jpg" alt="Avatar" height="40" class="layui-img-circle">
+    </div>
+</div>
+
+<!-- 内容区域 -->
+<div class="container-center">
+    <!-- 左侧栏 -->
+    <div class="left-side layui-col-xs3 layui-col-sm3">
+        <div class="layui-row">
+            <div class="layui-col header top1">
+                <span class="typewriter">动物论坛</span>
+            </div>
+        </div>
+        <div class="layui-row">
+            <div class="layui-col content">
+                <div>宠物养护</div>
+                <div>野生动物</div>
+                <div>摸鱼专区</div>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧栏 -->
+    <div class="right-side layui-col-xs9 layui-col-sm9">
+        <!-- 发帖部分 -->
+        <div class="layui-card">
+            <div class="layui-card-header">发帖</div>
+            <div class="layui-card-body">
+                <form action="/posts" method="post" class="layui-form">
+                    <div class="layui-form-item form-group">
+                        <label for="title" class="layui-form-label">Title</label>
+                        <div class="layui-input-block">
+                            <input type="text" class="form-control" id="title" name="title" required lay-verify="required">
+                        </div>
+                    </div>
+                    <div class="layui-form-item form-group layui-form-text">
+                        <label for="description" class="layui-form-label">Description</label>
+                        <div class="layui-input-block">
+                            <textarea class="form-control" id="description" name="description" required lay-verify="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button type="submit" class="layui-btn btn btn-primary" lay-submit>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 帖子列表 -->
+        <div class="post-list">
+            <!-- 帖子项 -->
+            <div th:each="post : ${posts}" class="post-item">
+                <div class="post-header">
+                    <img th:src="${post.user.headpic}" alt="User headpic" class="user-avatar" />
+                    <span th:text="${post.user.username}" class="user-name fw-bold">Username</span>
+                </div>
+                <div class="post-content">
+                    <div class="post-title" th:text="${post.title}">Post Title</div>
+                    <p th:text="${post.description}">Post Description</p>
+                </div>
+                <div class="post-meta">
+                    <span class="post-tag" th:text="${post.tag}">标签</span> <!-- 帖子标签 -->
+                </div>
+                <div class="post-actions">
+                    <span class="icon-comments"><i class="fas fa-comments"></i> <span th:text="${post.commentCount}">0</span></span>
+                    <span class="icon-views"><i class="fas fa-eye"></i> <span th:text="${post.viewCount}">0</span></span>
+                    <span class="icon-likes"><i class="fas fa-thumbs-up"></i> <span th:text="${post.likeCount}">0</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 引入Layui的JS -->
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form,
+            layer = layui.layer;
+
+        // 监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg('提交表单');
+            // 这里可以添加 AJAX 提交表单的代码
+            return false; // 阻止表单跳转
+        });
+    });
+</script>
+</body>
+</html>

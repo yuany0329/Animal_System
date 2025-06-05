@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/shopPage.css}">
+<!--<link rel="stylesheet" th:href="@{/js/shopPage.js}">-->
+<head>
+    <meta charset="UTF-8">
+    <title>商铺</title>
+    <!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> &lt;!&ndash; Include jQuery &ndash;&gt;-->
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage" id="current">文创商城</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="search1">
+        <form action="/searchShops" method="get">
+            <!--        商品名称：<input type="text" name="name">-->
+            <!--        商品类别：<input type="text" name="category">-->
+            <div class="c-select">
+                <div class="c-select1">
+                    商品类别：<select name="category" class="cselect">
+                    <option value="">请选择...</option>
+                    <option value="玩偶">玩偶</option>
+                    <option value="挂饰">挂饰</option>
+                    <option value="头饰">头饰</option>
+                    <option value="水杯">水杯</option>
+                    <option value="手办">手办</option>
+                    <option value="包包">包包</option>
+                    <option value="冰箱贴">冰箱贴</option>
+                    <option value="行李牌">行李牌</option>
+                    <!-- 添加更多选项 -->
+                    </select>
+                </div>
+            </div>
+            <div class="z-select">
+                <div class="z-select1">
+                    商品来源：<select name="zfrom" class="zselect">
+                    <option value="">请选择...</option>
+                    <option value="红山森林动物园">红山森林动物园</option>
+                    <option value="北京动物园">北京动物园</option>
+                    <option value="广州长隆野生动物世界">广州长隆野生动物世界</option>
+                    <option value="珠海长隆野生动物世界">珠海长隆野生动物世界</option>
+                    <!-- 添加更多选项 -->
+                </select>
+                </div>
+            </div>
+
+
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+    <div class="search2">
+        <form id="searchForm" action="/searchShopsByStr" method="post">
+            <input type="text" name="searchStr" id="searchStr">
+            <input type="submit" value="搜索">
+        </form>
+    </div>
+</div>
+<div class="shoptable">
+    <table class="tableless">
+        <thead>
+        <th class="namelink">编号</th>
+
+        <th class="namelink">图片</th>
+        <th class="namelink">名称</th>
+        <th class="namelink">类别</th>
+        <th class="namelink">价格</th>
+        <th class="namelink">已售数量</th>
+        <th class="namelink">库存数量</th>
+        <th class="namelink">来源</th>
+        </thead>
+        <tr th:each="shop:${page.list}">
+            <th th:text="${shop.id}"></th>
+            <th><img class="imgsize" th:src= "${shop.imgurl}"></th>
+            <!--        <th th:text="../img/01.jpg"></th>-->
+
+            <td>
+                <a th:href="@{'/shop/'+${shop.id}}" class="tidlink">[[${shop.name}]]</a>
+            </td>
+            <th th:text="${shop.category}"></th>
+            <th th:text="${shop.price}"></th>
+            <th th:text="${shop.sales}"></th>
+            <th th:text="${shop.pnum}"></th>
+            <th th:text="${shop.zfrom}"></th>
+        </tr>
+    </table>
+</div>
+<div class="Page">
+    <a th:if="${not page.isFirstPage}" th:href="@{/shopsPage(start=${page.pageNum-1})}" class="btn">上一页</a>
+    &nbsp;&nbsp;总页数：<span th:text="${page.pages}"></span>&nbsp;
+    &nbsp;&nbsp;当前页：<span th:text="${page.pageNum}"></span>&nbsp;
+    &nbsp;&nbsp;总记录数：<span th:text="${page.total}"></span>&nbsp;
+    &nbsp;&nbsp;当前页记录数：<span th:text="${page.size}"></span>&nbsp;
+    &nbsp;<a th:if="${not page.isLastPage}" th:href="@{/shopsPage(start=${page.pageNum+1})}" class="btn" >下一页</a>
+
+</div>
+</body>
+</html>

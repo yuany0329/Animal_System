@@ -1,0 +1,234 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /*background-color: #f5f5f5;*/
+    background: url("../images/Science.png");
+    background: url("../images/Science.png") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fancy-form {
+    background: linear-gradient(to right, #bdd8c0, #66b89c);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    width: 400px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+button[type="submit"] {
+    background-color: #fff;
+    color: #4A00E0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #ddd;
+}
+.radio-custom input[type="radio"] {
+    display: none;
+}
+
+/* 自定义单选按钮的样式 */
+.radio-custom {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px; /* 可根据需要调整间距 */
+    cursor: pointer;
+}
+
+.radio-custom .radio-label {
+    position: relative;
+    padding-left: 25px; /* 为单选按钮图标留出空间 */
+    color: #ddd; /* 与其他label颜色一致 */
+    font-weight: bold; /* 与其他label一致 */
+}
+
+/* 使用伪元素创建自定义的单选按钮样式 */
+.radio-custom input[type="radio"] + .radio-label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2); /* 与输入框背景色相似 */
+    vertical-align: middle;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* 边框颜色，根据需要调整 */
+}
+
+/* 当单选按钮被选中时，改变伪元素的样式 */
+.radio-custom input[type="radio"]:checked + .radio-label:before {
+    background-color: #fff; /* 选中时的背景色 */
+    border-color: #4A00E0; /* 选中时的边框色，与提交按钮的文本颜色一致 */
+}
+
+.custom-select {
+    /* 宽度 */
+    width: 400px; /* 或者使用百分比，如 width: 100%; 来使其充满父容器 */
+
+    /* 高度 */
+    height: 40px; /* 根据需要调整 */
+
+    /* 字体大小 */
+    font-size: 18px; /* 根据需要调整 */
+
+    /* 内边距 */
+    padding: 10px; /* 上下左右的内边距 */
+
+    /* 其他样式 */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #bdd8c0, #66b89c);
+    color: #ccc;
+    text-align: center;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-weight: bold;
+
+    /* 隐藏IE/Edge的默认下拉箭头（如果需要） */
+    ::-ms-expand {
+        display: none;
+    }
+
+    /* 注意：自定义下拉箭头通常需要额外的HTML/CSS或JavaScript来实现 */
+}
+
+.custom-select:focus {
+    /* 聚焦时的样式 */
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.addButton {
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-left:100%;
+}
+
+
+.addButton:hover {
+    background-color: #45a049;
+}
+
+.tablebuy {
+    margin-top:12%;
+    margin-left: 3%;
+    height:34.5rem;
+    padding: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(244, 244, 244, 0.71);
+    /*background: #3b7186;*/
+
+}
+
+.tableless {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.tableless th, .tableless td {
+    margin-left: 20%;
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    line-height: 2;
+}
+
+.wid{
+    margin-left: 35%;
+}
+
+
+.tableless th {
+    background-color: #f2f2f2;
+}
+
+/* 按钮样式 */
+#orderButton {
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 45%;
+}
+
+
+#orderButton:hover {
+    background-color: #45a049;
+}
+
+.inp{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 75%; /* 宽度 */
+    height: 1.8rem; /* 高度 */
+}

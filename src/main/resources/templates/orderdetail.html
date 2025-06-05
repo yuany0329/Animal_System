@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <link rel="stylesheet" th:href="@{/css/orderdetail.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage"  id="current">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="order">
+    <div class="right">
+        <table>
+            <tr>
+                <td>订单号</td>
+                <td th:text="${order.id}"></td>
+            </tr>
+            <tr>
+                <td>动物园名称</td>
+                <td th:text="${order.product.name}"></td>
+            </tr>
+            <tr>
+                <td>所在地区</td>
+                <td th:text="${order.product.area}"></td>
+            </tr>
+            <tr>
+                <td>使用日期</td>
+                <td th:text="${#dates.format(order.date,'YYYY-MM-dd')}"></td>
+            </tr>
+            <tr>
+                <td>入园时段</td>
+                <td th:text="${order.time}"></td>
+            </tr>
+            <tr>
+                <td>购票数量</td>
+                <td th:text="${order.number}"></td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td th:text="${order.product.price}*${order.number}"></td>
+            </tr>
+        </table>
+        <div>
+            <button id="payButton">立即支付</button>
+            <div id="paymentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>请确认订单信息：</p>
+                    <div style="margin: 0.5rem">
+                        <span>所选动物园：</span>
+                        <span th:text="${order.product.name}"></span>
+                    </div>
+                    <div style="margin: 0.5rem">
+                        <span>使用日期：</span>
+                        <span th:text="${#dates.format(order.date,'YYYY-MM-dd')}"></span>
+                    </div>
+                    <div style="margin: 0.5rem">
+                        <span>入园时段：</span>
+                        <span th:text="${order.time}"></span>
+                    </div>
+                    <div style="margin: 0.5rem">
+                        <span>购票数量：</span>
+                        <span th:text="${order.number}"></span>
+                    </div>
+                    <div style="margin: 0.5rem">
+                        <span>价格：￥</span>
+                        <span th:text="${order.product.price}*${order.number}"></span>
+                    </div>
+                    <button id="confirmPayment">确定支付</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left">
+        <div class="about_order">
+            <h3>购票须知</h3>
+            <h5>退款限制</h5>
+            <p>使用日期开始前1天19:00<br>
+                之前申请，不收取手续费；<br>
+                使用日期开始前1天23:00<br>
+                之前申请，收取30.0%/张手续费；<br>
+                使用日期开始前1天23:00<br>
+                之后申请，不可退
+            </p>
+            <h5>取票和入园信息</h5>
+            <p>商家确认短信发送时间：<br>
+                下单成功后提前一天下午22:00<br>
+                以后工作人员会主动与您联系内发送。<br>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById('payButton').addEventListener('click', function() {
+        document.getElementById('paymentModal').style.display = "block";
+    });
+
+    document.getElementsByClassName('close')[0].addEventListener('click', function() {
+        document.getElementById('paymentModal').style.display = "none";
+    });
+
+    document.getElementById('confirmPayment').addEventListener('click', function() {
+        // 这里可以添加支付逻辑，例如调用API
+        console.log('支付确认');
+        document.getElementById('paymentModal').style.display = "none";
+    });
+</script>
+</body>
+</html>

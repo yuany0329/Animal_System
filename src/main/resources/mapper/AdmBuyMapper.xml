@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bnu.mapper.AdmBuyMapper">
+    <!--    查询全部商品-->
+    <select id="findAllcustomers" resultType="BuyCustomer">
+        select *
+        from t_buy
+    </select>
+
+    <!--    根据ID查询商品-->
+    <select id="findCustomerById" resultType="BuyCustomer">
+        select *
+        from t_buy
+        where id=#{id}
+    </select>
+
+
+    <delete id="deleteCustomers" parameterType="int">
+        delete from t_buy where id=#{id}
+    </delete>
+
+    <!--        多条件查询-->
+    <select id="searchCustomers" resultType="BuyCustomer">
+        select * from t_buy
+        <where>
+            <if test="t_id != null and t_id != ''">
+                AND t_id LIKE CONCAT('%', #{t_id}, '%')
+            </if>
+            <if test="c_id != null and c_id != ''">
+                AND c_id LIKE CONCAT('%', #{c_id}, '%')
+            </if>
+            <if test="c_name != null and c_name != ''">
+                AND c_name LIKE CONCAT('%', #{c_name}, '%')
+            </if>
+            <if test="c_phone != null and c_phone != ''">
+                AND c_phone LIKE CONCAT('%', #{c_phone}, '%')
+            </if>
+        </where>
+    </select>
+    <!--    模糊搜索-->
+    <select id="searchBuyerByStr" parameterType="java.lang.String" resultType="BuyCustomer">
+        select * from t_buy
+        where 1=1
+        <if test="searchStr!=null and searchStr!=''">
+            AND c_id like CONCAT('%',#{searchStr},'%')
+            or t_id like CONCAT('%',#{searchStr},'%')
+            or c_name like CONCAT('%',#{searchStr},'%')
+            or bnum like CONCAT('%',#{searchStr},'%')
+            or c_phone like CONCAT('%',#{searchStr},'%')
+            or c_address like CONCAT('%',#{searchStr},'%')
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>商品详情</title>
+</head>
+<body>
+<h1>修改商品</h1>
+<form th:action="@{/updateShop}"method="post">
+  <table border="1"align="center">
+    <tr>
+      <td>编号</td>
+      <td><input type="text"name="id"th:value="${shop.id}"readonly></td>
+    </tr>
+    <tr>
+      <td>商品图片</td>
+      <td><input type="text"name="imgurl"th:value="${shop.imgurl}"></td>
+    </tr>
+    <tr>
+      <td>商品名称</td>
+      <td><input type="text"name="name"th:value="${shop.name}"></td>
+    </tr>
+    <tr>
+      <td>类别</td>
+      <td><input type="text"name="category"th:value="${shop.category}"></td>
+    </tr>
+    <tr>
+      <td>价格</td>
+      <td><input type="text"name="price"th:value="${shop.price}"></td>
+    </tr>
+    <tr>
+      <td>已售数量</td>
+      <td><input type="text"name="sales"th:value="${shop.sales}"></td>
+    </tr>
+    <tr>
+      <td>库存数量</td>
+      <td><input type="text"name="pnum"th:value="${shop.pnum}"></td>
+    </tr>
+    <tr>
+      <td>来源</td>
+      <td><input type="text"name="zfrom"th:value="${shop.zfrom}"></td>
+    </tr>
+    <tr>
+      <td>介绍</td>
+      <td><input type="text"name="introduce"th:value="${shop.introduce}"></td>
+    </tr>
+    <tr>
+      <td colspan="2"align="center"><input type="submit"value="修改"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

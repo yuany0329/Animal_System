@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>添加个人信息</title>
+    <link rel="stylesheet" th:href="@{/css/addstyle.css}">
+</head>
+<body>
+<form th:action="@{/addOrder}" method="post">
+    <div class="tablebuy">
+        <table class="tableless">
+            <thead>
+            <tr>
+                <td>姓名</td>
+                <td><input type="text" name="name" class="inp" ></td> <!-- Input for customer ID -->
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td><input type="text" name="sex" class="inp" ></td> <!-- Input for recipient's name -->
+            </tr>
+            <tr>
+                <td>年龄</td>
+                <td><input type="text" name="age" class="inp" ></td> <!-- Input for recipient's phone -->
+            </tr>
+            <tr>
+                <td>身份证号码</td>
+                <td><input type="text" name="Id_Card_Number" class="inp"></td> <!-- Input for delivery address -->
+            </tr>
+            <tr>
+                <td>电话号</td>
+                <td><input type="text" name="phone" class="inp"></td> <!-- Input for delivery address -->
+            </tr>
+            <tr>
+                <td>日期</td>
+                <td><input type="date" name="time" class="inp"></td> <!-- Input for delivery address -->
+            </tr>
+            <tr>
+                <td>活动名称</td>
+                <td>
+                    <select name="hdid" class="custom-select" required>
+                    <option value="">请选择活动序号</option>
+                    <option value="爱心体验官">爱心体验官</option>
+                    <option value="小小保育员">小小保育员</option>
+                    <option value="海洋王国研学">海洋王国研学</option>
+                </select></td> <!-- Input for delivery address -->
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" id="orderButton">提交</button> <!-- Button to submit form -->
+                </td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</form>
+</body>
+</html>

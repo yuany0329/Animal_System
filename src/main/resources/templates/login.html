@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+    <style>
+        .welcome{
+            color: #ffffff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        body {
+            background: url("https://telegraph-image-92x.pages.dev/file/719027a1419c3e4b55537.jpg");
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .login-container {
+            max-width: 40%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+            backdrop-filter: blur(30px); /* 背景模糊效果 */
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out, float 6s ease-in-out infinite;
+        }
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .layui-form-label {
+            color: #fff;
+            font-weight: bold;
+        }
+        .layui-input {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+        }
+        .container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-login {
+            width: 60%;
+            background: linear-gradient(to right, #3b8686, #5FB878);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .btn-login:hover {
+            background: linear-gradient(to right, #3b8686, #5FB878);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+<div class="login-container layui-anim layui-anim-scaleSpring">
+    <h2 class="login-title">欢迎登录</h2>
+    <form th:action="@{/login}" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label" for="username">昵  称:</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="username" name="username" required>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" for="password">密  码:</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="container1">
+            <button type="submit" class="layui-btn layui-btn-fluid btn-login">点击登录</button></div>
+    </form>
+    <p th:text="${message}" class="text-center welcome "></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+</body>
+</html>

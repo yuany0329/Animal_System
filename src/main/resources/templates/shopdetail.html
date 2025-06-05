@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/shopdetail.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act" id="current">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="outbox">
+    <div class="container">
+        <div class="imgdetail">
+            <img class="imgsize" th:src="${shop.imgurl}">
+        </div>
+
+        <div class="table">
+            <table class="tableless" >
+                <tr>
+                    <td>编号</td>
+                    <td th:text="${shop.id}" id="productId"></td>
+                </tr>
+                <tr>
+                    <td>名称</td>
+                    <td th:text="${shop.name}"></td>
+                </tr>
+                <tr>
+                    <td>价格</td>
+                    <td th:text="${shop.price}"></td>
+                </tr>
+                <tr>
+                    <td>类别</td>
+                    <td th:text="${shop.category}"></td>
+                </tr>
+                <tr>
+                    <td>库存数量</td>
+                    <td th:text="${shop.pnum}"></td>
+                </tr>
+                <tr>
+                    <td>已售数量</td>
+                    <td th:text="${shop.sales}"></td>
+                </tr>
+                <!--    <tr>-->
+                <!--        <td>图片</td>-->
+                <!--        <td th:text="${shop.imgurl}"></td>-->
+                <!--    </tr>-->
+                <tr>
+                    <td>简介</td>
+                    <td th:text="${shop.introduce}"></td>
+                </tr>
+            </table>
+
+
+            <input type="button" value="立即购买" onclick="gotoBuyPage()" class="buttonbuy">
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.1.0.min.js"></script>
+<script>
+    function gotoBuyPage(){
+        var ids = $('#productId').html()
+        window.location.href = "/addBuy/"+ids;
+    }
+</script>
+</body>
+</html>

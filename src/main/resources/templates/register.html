@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("https://telegraph-image-92x.pages.dev/file/719027a1419c3e4b55537.jpg");
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .register-container {
+            max-width: 40%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+            backdrop-filter: blur(30px); /* 背景模糊效果 */
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out, float 6s ease-in-out infinite;
+        }
+        .register-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .layui-form-label {
+            color: #fff;
+            font-weight: bold;
+        }
+        .layui-input {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+        }
+        /* 居中按钮样式 */
+        .container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 注册按钮样式 */
+        .btn-register {
+            width: 60%;
+            padding: 10px 20px; /* 按钮内边距 */
+            background: linear-gradient(to right, #3b8686, #5FB878);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 5px; /* 圆角边框 */
+            cursor: pointer; /* 鼠标悬停时显示手形图标 */
+            transition: background 0.3s ease, transform 0.3s ease; /* 添加变换动画 */
+        }
+
+        /* 鼠标悬停时的渐变效果和缩放效果 */
+        .btn-register:hover {
+            background: linear-gradient(to right, #3b8686, #5FB878);
+            transform: scale(1.05); /* 缩放按钮 */
+        }
+
+        /* 按钮淡入动画 */
+        .btn-register {
+            animation: fadeIn 1s ease-out forwards; /* 淡入动画 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* 初始位置稍微向下偏移 */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* 动画结束时回到原位 */
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+<div class="register-container layui-anim layui-anim-scaleSpring">
+    <h2 class="register-title">欢迎注册</h2>
+    <form th:action="@{/register}" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label" for="username">请输入昵称</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="username" name="username" required>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" for="password">请输入密码</label>
+            <div class="layui-input-block">
+                <input type="password" class="layui-input" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label" for="headpic">请上传头像</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="headpic" name="headpic">
+            </div>
+        </div>
+        <div class="container1">
+            <button class="btn-register">点击注册</button>
+        </div>
+    </form>
+    <p th:text="${message}" class="text-center text-danger mt-3"></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://www.layuicdn.com/layui/layui.js"></script>
+</body>
+</html>

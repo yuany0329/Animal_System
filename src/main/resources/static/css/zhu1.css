@@ -1,0 +1,460 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* 设置背景图片 */
+    background-image: url('../images/vol2.jpg');
+
+    /* 背景图片不重复 */
+    background-repeat: no-repeat;
+
+    /* 背景图片覆盖整个页面 */
+    background-size: cover;
+
+    /* 背景图片固定，页面滚动时不移动 */
+    background-attachment: fixed;
+
+    /* 设置背景颜色，当图片加载失败或图片小于元素时显示 */
+    background-color: #f0f0f0;
+
+    /* 可选：设置背景图片的位置 */
+    /* background-position: center; */
+
+    /* 确保body元素占据整个视口的高度 */
+    min-height: 100vh;
+
+    /* 可选：为body添加一些内边距，避免内容直接贴在背景图片边缘 */
+    /* padding: 20px; */
+
+    /* 可选：为body设置一些边距，以避免内容被滚动条遮挡（在需要滚动条时） */
+    /* margin: 0; */
+}
+
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 20%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 20%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+.tablecss{
+    text-align: center;
+    height: 30px;
+}
+table{
+    align-content: center;
+    padding-left: 2%;
+    position: relative;
+    width: 98%;
+    line-height: 30px;
+}
+
+.tablecss  tr{
+    height: 20px;
+    background-color: rgba(76, 175, 80, 0.34);
+    color: rgba(38, 36, 36, 0.75);
+    font-size: 30px;
+    line-height: 30px;
+}
+.tablecss thead th,.tablecss thead td{
+    font-size: 30px;
+    color:white;
+    line-height: 30px;
+    border: 1px solid rgba(45, 122, 33, 0.29); /* 单元格边框 */
+    border-radius: 5px;
+    height: 30px;
+
+}
+.tablecss thead tr,.tablecss thead th{
+    height: 50px;
+    background-color: rgba(45, 122, 33, 0.29);
+    color: #FFFFFF;
+    font-size: 15px;
+}
+
+.tablecss tbody td,.tablecss tbody th{
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 1rem;
+    height: 60px;
+    font-family: "STXinwei";
+    background-color:rgba(212, 236, 210, 0.9) ;
+    color: rgb(149, 170, 109);
+}
+tr:hover {
+    background-color: rgba(212, 236, 210, 0.9); /* 鼠标悬停时，行的背景色变为浅灰色 */
+}
+.tablecss td{
+    font-size: 14px;
+    line-height: 30px;  height: 30px;
+    outline-width: 85vh;
+    color: rgba(38, 36, 36, 0.75);
+}
+
+#table-4 {
+    align: center;
+    text-align: center;
+    padding-left: 30%;
+    width: 70%;
+    height: 100px;
+}
+#table-4 thead tr{
+    height: 50px;
+    width: 60px;
+    background-color: olivedrab;
+    color: #FFFFFF;
+    font-family: "STXingkai";
+    font-size: 30px;
+}
+
+/* Padding and font style */
+.volunteer{
+    margin-left: 33%;
+    margin-top: 4rem;
+    padding: 1rem;
+    border-collapse: separate;
+    border-spacing: 10px;
+    border-radius: 3rem;
+    height: 18rem;
+    width: 22rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(244, 244, 244, 0.71);
+}
+
+#btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* 添加一些额外的样式来确保链接表现得像按钮 */
+#btn:not(:disabled):not(.disabled) {
+    text-decoration: none; /* 移除下划线 */
+}
+
+#btn:focus, .btn:active {
+    outline: none; /* 移除焦点和激活时的轮廓 */
+    box-shadow: none; /* 移除可能的阴影 */
+}
+
+#button1{
+    justify-content: center;
+    background-color:dodgerblue;
+    color:white;
+    width: 150px;
+    height: 47px;
+    border:0;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+
+.niceButton1{
+    padding: 0.01rem 0.03rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:rgb(59,122,95);
+    background-color: rgb(205,220,237);
+    border: none;
+    border-radius: 15px;
+    font-family: "STXinwei";
+    box-shadow: 0 9px rgb(231,238,236);
+}
+
+.niceButton1:hover{
+    background-color: #fbffc9;
+}
+
+.niceButton1:active {
+    background-color: #fbffc9;
+    box-shadow: 0 9px rgb(231, 238, 236);
+    transform: translateY(4px);
+}
+
+.niceButton2{
+    padding: 1rem 3rem;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:rgb(59,122,95);
+    background-color: rgb(205,220,237);
+    border: none;
+    border-radius: 15px;
+    font-family: "STXinwei";
+    box-shadow: 0 9px rgb(231,238,236);
+}
+
+.niceButton2:hover{
+    background-color: #fbffc9;
+}
+
+.niceButton2:active {
+    background-color: #fbffc9;
+    box-shadow: 0 9px rgb(231, 238, 236);
+    transform: translateY(4px);
+}
+
+.button2 {
+    display: inline-block; /* 让a标签表现得像块级元素一样，方便设置宽度和高度 */
+    padding: 10px 20px; /* 内边距，增加点击区域的大小 */
+    font-size: 16px; /* 字体大小 */
+    color: white; /* 文字颜色 */
+    background-color: #007BFF; /* 背景颜色 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 边框圆角 */
+    text-align: center; /* 文字居中 */
+    text-decoration: none; /* 移除下划线 */
+    cursor: pointer; /* 鼠标悬停时显示手指形状，表明是可点击的 */
+    transition: background-color 0.3s; /* 平滑的背景色过渡效果 */
+}
+
+.button2:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}
+
+.button2:active {
+    background-color: #004085; /* 点击时的背景颜色 */
+}
+
+.button-container {
+    display: flex; /* 使用Flexbox */
+    justify-content: flex-start; /* 或者使用其他值来控制按钮之间的间距，如space-around, flex-start, center, flex-end */
+    align-items: center;
+    justify-content: center
+}
+
+.button-container button{
+    margin-right: 10px;
+}
+
+.button-container {
+    gap: 2rem;
+}
+
+.button-container button:not(:last-child){
+    margin-right: 10px;
+}
+
+.custom-select {
+    /* 宽度 */
+    width: 250px; /* 或者使用百分比，如 width: 100%; 来使其充满父容器 */
+
+    /* 高度 */
+    height: 40px; /* 根据需要调整 */
+
+    /* 字体大小 */
+    font-size: 16px; /* 根据需要调整 */
+
+    /* 内边距 */
+    padding: 10px; /* 上下左右的内边距 */
+
+    /* 其他样式 */
+    font-family: Arial, sans-serif;
+    color: #444;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    /* 隐藏IE/Edge的默认下拉箭头（如果需要） */
+    ::-ms-expand {
+        display: none;
+    }
+
+    /* 注意：自定义下拉箭头通常需要额外的HTML/CSS或JavaScript来实现 */
+}
+
+.custom-select:focus {
+    /* 聚焦时的样式 */
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.inp1{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 25%; /* 宽度 */
+    height: 1.6rem; /* 高度 */
+}
+
+.inp2{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 25%; /* 宽度 */
+    height: 2.8rem; /* 高度 */
+}
+
+.form-containerx {
+    display: flex;
+    align-items: center; /* 使子元素在交叉轴上的对齐方式居中 */
+    gap: 10px; /* 子元素之间的间隔 */
+}
+
+.select-container {
+    margin-left: 30%;
+}
+
+.addButton {
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 10%;
+    margin-left:1%;
+}
+
+
+.addButton:hover {
+    background-color: #45a049;
+}
+
+.addButtonx {
+    background-color: #4CAF50; /* 绿色 */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 5%;
+    margin-left:1%;
+}
+
+
+.addButtonx:hover {
+    background-color: #45a049;
+}
+
+.inp3{
+    border: 2px solid #4CAF50; /* 绿色边框 */
+    border-radius: 0.8rem; /* 边框圆角 */
+    background-color: #ffffff; /* 浅灰色背景 */
+    padding: 0.5rem; /* 填充 */
+    font-size: 1.2rem; /* 字体大小 */
+    width: 55%; /* 宽度 */
+    height: 1.6rem; /* 高度 */
+}
+
+.title11 {
+    background: #fbffc9;
+    border-top-left-radius: 5px;
+    padding-left: 10px;
+
+    &:before {
+        content: "";
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        width: 4px;
+        height: 50%;
+        background: #fbffc9;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

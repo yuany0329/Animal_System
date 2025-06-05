@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="@{/css/Home.css}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="http://localhost:8888/Home" id="current">首页</a></li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/act">活动中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/A">奇妙探索季</a>
+                <a href="http://localhost:8888/B">园际缤纷汇</a>
+                <a href="http://localhost:8888/C">佳节悦兽行</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="http://localhost:8888/Science">科普中心 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/pd">熊猫</a>
+                <a href="http://localhost:8888/tusun">兔狲</a>
+                <a href="http://localhost:8888/zhbht">中华白海豚</a>
+                <a href="http://localhost:8888/xuebao">雪豹</a>
+                <a href="http://localhost:8888/monkey">金丝猴</a>
+                <a href="http://localhost:8888/yze">扬子鳄</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/productsPage">门票订购</a></li>
+        <li><a href="http://localhost:8888/loves">爱心募捐</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">研学体验 <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="http://localhost:8888/Panda">爱心体验官</a>
+                <a href="http://localhost:8888/byyG">小小保育员</a>
+                <a href="http://localhost:8888/anz">海洋王国研学</a>
+            </div>
+        </li>
+        <li><a href="http://localhost:8888/posts">动物论坛</a></li>
+        <li><a href="http://localhost:8888/shopsPage">文创商城</a></li>
+    </ul>
+</nav>
+<div class="content active" id="content1">
+    <h1>"生物星图"</h1>
+    <h2>—— 国家保护动物科普及动物园推介一体化平台</h2>
+    <div class="music-player">
+
+        <audio id="audio" src="../music/03.mp3" type="audio/mp3" style="display: none;"></audio>
+        <div class="player-controls">
+            <button class="play-pause" onclick="togglePlayPause()">
+                <i class="fas fa-play"></i>
+            </button>
+            <input type="range" id="volume" min="0" max="1" step="0.01" value="1" oninput="setVolume(this.value)">
+            <span class="volume-level">100%</span>
+        </div>
+    </div>
+</div>
+<div class="content" id="content2">
+    <script src="/js/jquery-3.1.0.min.js"></script>
+    <div class="zimg">
+    <div class="outside">
+        <div class="rotas">
+            <div class="sel">
+                <a href="http://localhost:8888/xuebao"><img src="../images/雪豹.png"></a>
+                <div><h3>雪豹</h3></div>
+            </div>
+            <div>
+                <a href="http://localhost:8888/pd"><img src="../images/熊猫.png"></a>
+                <div><h3>熊猫</h3></div>
+            </div>
+            <div>
+                <a href="http://localhost:8888/zhbht"><img src="../images/海豚.png"></a>
+                <div><h3>中华白海豚</h3></div>
+            </div>
+            <div>
+                <a href="http://localhost:8888/yze"><img src="../images/扬子鳄.png"></a>
+                <div><h3>扬子鳄</h3></div>
+            </div>
+            <div>
+                <a href="http://localhost:8888/tusun"><img src="../images/兔狲.png"></a>
+                <div><h3>兔狲</h3></div>
+            </div>
+            <div>
+                <a href="http://localhost:8888/monkey"><img src="../images/金丝猴.png"></a>
+                <div><h3>金丝猴</h3></div>
+            </div>
+        </div>
+        <div class="changeBtns">
+            <div class="left">&lt;</div>
+            <div class="right">&gt;</div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="content" id="content4">
+    <div class="video">
+        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=395917307&bvid=BV1yo4y1B7oK&cid=1050619727&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="videoin"></iframe>
+    </div>
+</div>
+<div class="content" id="content3">
+    <div class="hhh">
+    <div id="container">
+        <!--最外面的DIV，用来包含里面的结构-->
+        <div class="pin">
+            <div id="game">
+            <!--游戏区,大DIV方块-->
+            <div id="d1" onclick="move(1)"><img src="../images/9_01.gif" class="inimg"> </div>
+            <!--小DIV，也就是8个小方块。当点击的时候执行move()函数，参数是显示的编号，这样我们就知道点击了哪个方块-->
+            <div id="d2" onclick="move(2)"><img src="../images/9_02.gif" class="inimg"></div>
+            <div id="d3" onclick="move(3)"><img src="../images/9_03.gif" class="inimg"></div>
+            <div id="d4" onclick="move(4)"><img src="../images/9_04.gif" class="inimg"></div>
+            <div id="d5" onclick="move(5)"><img src="../images/9_05.gif" class="inimg"></div>
+            <div id="d6" onclick="move(6)"><img src="../images/9_06.gif" class="inimg"></div>
+            <div id="d7" onclick="move(7)"><img src="../images/9_07.gif" class="inimg"></div>
+            <div id="d8" onclick="move(8)"><img src="../images/9_08.gif" class="inimg"></div>
+            </div>
+        </div>
+        <div id="control">
+            <!--游戏控制区-->
+            <p>
+                <rowspan id="timeText">总用时</rowspan>
+                <rowspan id="timer"></rowspan>
+            </p>
+            <!--显示游戏时间区域-->
+            <p>
+                <button id="start" onclick="start()">开始</button>
+                <button id="reset" onclick="reset()">重来</button>
+            </p>
+            <!--显示控制按钮区域-->
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<script src="/js/Home.js"></script>
+
+
+</body>
+
+</html>

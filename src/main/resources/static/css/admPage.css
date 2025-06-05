@@ -1,0 +1,359 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a6d42;
+}
+
+nav li {
+    float: left;
+    width: 20%;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+#current{
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
+nav li a:hover {
+    background-color: #faf1bd;
+    color: black;
+}
+
+/* 下拉框样式 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 20%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 悬停时显示下拉框 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 可选：为下拉箭头添加一些样式 */
+.dropdown a i {
+    margin-left: 5px;
+}
+.title h1{
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.shoptable{
+    background: rgba(168, 219, 168, 0.1);
+}
+/*.tableless{*/
+/*    border: #4CAF50;*/
+/*    !*padding: 30%;*!*/
+/*    width: 100%;*/
+/*    !*border-collapse: separate; !* 允许边框分开，以便使用border-spacing *!*!*/
+/*    !*border-spacing: 10px; !* 单元格边框之间的空间 *!*!*/
+/*    border-collapse: collapse; !* 让表格边框合并为一个单一的边框 *!*/
+
+/*    !*table-layout: auto;*!*/
+/*        font-size: 1.2rem;*/
+/*        th, td {*/
+/*            padding: 1%;*/
+/*            text-align: center;*/
+/*            border: 1px solid gray; !* 设置单元格之间的分隔线 *!*/
+/*        }*/
+/*}*/
+
+
+/* Border styles */
+.tableless thead{
+    background-color: #4CAF50;
+}
+
+.tableless tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(235, 242, 224);
+}
+.tableless {
+    width: 100%;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(168, 219, 168, 0.14);
+}
+
+/* Padding and font style */
+.tableless td, .tableless th {
+    /*padding: 5px 10px;*/
+    font-size: 1.2rem;
+    padding: 1%;
+    text-align: center;
+    font-family: Verdana;
+    color: rgb(59, 113, 134);
+}
+.namelink{
+    background: rgba(168, 219, 168, 0.65);
+}
+
+/* Alternating background colors */
+.tableless tr:nth-child(even) {
+    background: rgba(168, 219, 168, 0.25)
+}
+.tableless tr:nth-child(odd) {
+    background: #FFF
+}
+.tableless tr:hover{
+    background-color: rgba(204, 204, 204, 0.14);
+}
+
+
+
+
+.title{
+    background: #4CAF50;
+}
+.search1{
+    background: rgba(168, 219, 168, 0.14);
+}
+.search2{
+    background: rgba(168, 219, 168, 0.14);
+    /*width: 25%;*/
+    /*margin-right: 5%;*/
+}
+
+/*.search2 form {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    background-color: #f0f0f0;*/
+/*    padding: 10px;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 2px 4px rgba(0,0,0,0.1);*/
+/*}*/
+
+/*.search2 input[type="text"] {*/
+/*    flex-grow: 1; !* 让输入框占据剩余空间 *!*/
+/*    padding: 8px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 4px 0 0 4px; !* 左侧圆角 *!*/
+/*    margin-right: 5px;*/
+/*}*/
+
+/*.search2 input[type="submit"] {*/
+/*    background-color: #4CAF50; !* 绿色背景 *!*/
+/*    color: white;*/
+/*    border: none;*/
+/*    padding: 8px 16px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    font-size: 16px;*/
+/*    margin: 4px 2px;*/
+/*    cursor: pointer;*/
+/*    border-radius: 0 4px 4px 0; !* 右侧圆角 *!*/
+/*}*/
+
+/*.search2 input[type="submit"]:hover {*/
+/*    background-color: #45a049; !* 鼠标悬停时的背景色 *!*/
+/*}*/
+.container {
+    display: flex;
+    width:100%
+}
+.search1{
+    flex:5;
+    /*justify-content: space-between;*/
+}
+.search2{
+    flex:2
+}
+
+.add{
+    flex:1 ;
+    background: rgba(168, 219, 168, 0.14);
+}
+.in{
+    margin-left: 20%;
+    margin-top: 3%;
+}
+
+.search1 form, .search2 form {
+    display: flex; /* 同样使用Flexbox布局来排列表单内的元素 */
+    align-items: center; /* 使输入框和按钮在垂直方向上居中对齐 */
+}
+
+.search2 form input[type="text"] {
+    flex: 1; /* 使输入框占据剩余空间 */
+    margin: 15px; /* 在输入框和按钮之间添加一些间距 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* 左侧圆角 */
+    margin-right: 5px;
+}
+
+.search2 form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* 右侧圆角 */
+}
+.search1 form input[type="submit"]:hover{
+    background-color: #45a049; /* 鼠标悬停时的背景色 */
+}
+.search2 form input[type="submit"]:hover{
+    background-color: #45a049; /* 鼠标悬停时的背景色 */
+}
+
+
+.cselect,.zselect{
+    background:#fafdfe;
+    height:2.1rem;
+    width:70%;
+    line-height:28px;
+    /*border:1px solid #9bc0dd;*/
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border: 1px solid #ccc;
+    margin-top: 2%;
+}
+
+.c-select{
+    flex:10;
+    /*background: #9bc0dd;*/
+    padding: 1%;
+}
+.c-select1{
+    margin-left: 20%;
+}
+.z-select{
+    flex: 10;
+    /*background: #cccccc;*/
+    padding: 1%;
+}
+.z-select1{
+    margin-left: 15%;
+}
+.search1 form input[type="submit"]{
+    flex:1;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 5px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0; /* 右侧圆角 */
+}
+
+.btn {
+    display: inline-block; /* 让a标签像块级元素一样，可以设置宽高 */
+    padding: 10px 20px; /* 内边距 */
+    margin: 5px 0; /* 外边距 */
+    text-align: center; /* 文本居中 */
+    text-decoration: none; /* 去除下划线 */
+    font-size: 16px; /* 字体大小 */
+    color: #fff; /* 字体颜色 */
+    background-color: rgb(76, 175, 80); /* 背景颜色 */
+    border: none; /* 去除边框 */
+    border-radius: 4px; /* 边框圆角 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    transition: background-color 0.3s; /* 平滑过渡效果 */
+}
+
+.btn:hover {
+    background-color: rgb(69, 160, 73); /* 鼠标悬停时的背景颜色 */
+}
+.Page{
+    background: rgba(168, 219, 168, 0.29);
+}
+.tidlink{
+    text-decoration: none; /* 去除下划线 */
+    /*font-size: 16px; !* 字体大小 *!*/
+    color: #3b7186; /* 字体颜色 */
+    font-family: Verdana;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom-width: .1rem;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(59, 113, 134);
+
+}
+
+.imgsize{
+    width: 8rem; /* 或者你想要的任何宽度 */
+    height: 8rem; /* 或者你想要的任何高度 */
+    object-fit: cover; /* 保持图片的宽高比，同时填充整个容器 */
+}
+
+.addbtn{
+    display: inline-block; /* 让a标签像块级元素一样，可以设置宽高 */
+    padding: 10px 20px; /* 内边距 */
+    margin: 5px 0; /* 外边距 */
+    text-align: center; /* 文本居中 */
+    text-decoration: none; /* 去除下划线 */
+    font-size: 16px; /* 字体大小 */
+    color: #fff; /* 字体颜色 */
+    background-color: rgb(76, 175, 80); /* 背景颜色 */
+    border: none; /* 去除边框 */
+    border-radius: 4px; /* 边框圆角 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    transition: background-color 0.3s; /* 平滑过渡效果 */
+}
+
+.addbtn:hover {
+    background-color: rgb(69, 160, 73); /* 鼠标悬停时的背景颜色 */
+}
