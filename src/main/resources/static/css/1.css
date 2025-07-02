@@ -1,5 +1,6 @@
-nav{
-    background-color: #4CAF50;    overflow: hidden;
+nav {
+    background-color: #4CAF50;
+    overflow: hidden;
 }
 
 nav ul {
@@ -23,25 +24,22 @@ nav li a {
     text-decoration: none;
 }
 
-
-#current{
+#current {
     background-color: #faf1bd;
     color: black;
 }
 
-/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
 nav li a:hover {
     background-color: #faf1bd;
     color: black;
 }
 
-/* 下拉框样式 */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     width: 12.5%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -52,177 +50,73 @@ nav li a:hover {
     display: block;
 }
 
-/* 悬停时显示下拉框 */
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-.A h2 {text-align: center;
-    font-size: 4rem;
-
-}
-.A h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.A{
-    text-align: center;
-}
-.B{
-    text-align: center;
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    margin: 3rem auto;
-    height: 240px;
-}
-.B h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.C{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    margin: 3rem auto;
-    height: 300px;
-}
-.C h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-
-}
-.image-C{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 117vh;
-    left: 13vh;
-
-    transition: transform 0.5s ease;
-}
-
-
-.image-C:hover {
-    transform: scale(1.2);
-}
-.D{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    height: 300px;margin: 3rem auto;
-}
-.D h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.image-D{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position:absolute;
-    top: 182vh;
-    right: 10vh;
-    transition: transform 0.5s ease;
-}
-.image-D:hover {
-    transform: scale(1.2);
-}
-.E{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    height: 300px;margin: 3rem auto;
-}
-.E h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-
-}
-.image-E{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 245vh;
-    left: 13vh;
-    transition: transform 0.5s ease;
-}
-.image-E:hover {
-    transform: scale(1.2);
-}
-body{
     background-image: url("../images/3.5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
-.image-F{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 117vh;
-    right: 13vh;
+
+.A h2 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.A h4, .B h4, .C h4, .D h4, .E h4 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2E961CFF;
+}
+
+.A, .B, .C, .D, .E {
+    text-align: center;
+    border: 5px solid rgba(46, 150, 28, 0.33);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 85%;
+    margin: 3rem auto;
+    padding: 1rem;
+}
+
+.C .content, .D .content, .E .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.image-C, .image-D, .image-E {
+    width: 30%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 2rem;
+    display: block;
+    position: static;
     transition: transform 0.5s ease;
 }
-.image-F:hover {
-    transform: scale(1.2);
-}
-.image-G{
-     width: 23%; /* 将图片宽度设置为容器宽度的50% */
-     height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-     border-radius: 10px; /* 圆角边框 */
-     margin: 20px; /* 外边距 */
-     display: block; /* 使图片成为块级元素，便于控制布局 */
-     position: absolute;
-    top: 182vh;
-    left: 10vh;
-     transition: transform 0.5s ease;
- }
-.image-G:hover {
-    transform: scale(1.2);
-}
-.image-H{
-     width: 23%; /* 将图片宽度设置为容器宽度的50% */
-     height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-     border-radius: 10px; /* 圆角边框 */
-     margin: 20px; /* 外边距 */
-     display: block; /* 使图片成为块级元素，便于控制布局 */
-     position: absolute;
-     top: 245vh;
-     right: 13vh;
-     transition: transform 0.5s ease;
- }
-.image-H:hover {
+
+.image-C:hover, .image-D:hover, .image-E:hover {
     transform: scale(1.2);
 }
 
+.image-F, .image-G, .image-H {
+    width: 23%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2rem auto;
+    display: block;
+    position: static;
+    transition: transform 0.5s ease;
+}
 
+.image-F:hover, .image-G:hover, .image-H:hover {
+    transform: scale(1.2);
+}

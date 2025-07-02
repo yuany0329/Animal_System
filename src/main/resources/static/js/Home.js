@@ -23,6 +23,7 @@
 //     contents[currentIndex].classList.add('active');
 // });
 
+// 这里管滚轮
 let currentIndex = 0; // 通常从 0 开始索引
 const contents = document.querySelectorAll('.content'); // 获取所有内容块
 
@@ -57,6 +58,7 @@ window.addEventListener('wheel', function(event) {
     }
 });
 
+//这里管音频
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化音量显示
     updateVolumeDisplay();
@@ -128,7 +130,7 @@ document.getElementById('volume').addEventListener('input', function() {
 //
 // startSlideshow();
 
-
+//这里管3D，但实践过程中真的会用到吗？
 let rotas = $('.rotas');
 let rotasPro = $('.rotas >div');
 let rightBtn = $('.right');
@@ -175,7 +177,7 @@ let autoRota = setInterval(function() {
 
 
 
-
+// 这下面都是8puzzle，别管别的，你就说好不好玩
 var time=0; //保存定时时间
 var pause=true; //设置是否暂停标志，true表示暂停
 var set_timer; //设置定时函数

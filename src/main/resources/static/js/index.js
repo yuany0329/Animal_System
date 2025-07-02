@@ -38,6 +38,7 @@ function frount() {
 };
 
 // 点击图片
+// 点击任意图片会将其切换到中心位置，悬停图片时暂停自动轮播
 function bind() {
     for (var i = 0; i < len; i++) {
         (function (i) {
@@ -93,7 +94,7 @@ function btnClick() {
                     }
 
                 }
-                setTimeout(() => {
+                setTimeout(() => { //防抖
                     flag = true;
                 }, 800);
                 frount();

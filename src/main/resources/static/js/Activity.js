@@ -1,3 +1,5 @@
+//自动轮播
+
 let currentSlide = 0; // 当前显示的slide索引
 const slides = document.querySelectorAll('.carousel-slide'); // 获取所有轮播项
 const totalSlides = slides.length; // 轮播项总数

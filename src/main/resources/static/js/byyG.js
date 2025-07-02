@@ -1,3 +1,5 @@
+//鼠标滚轮
+
 let currentIndex = 0; // 通常从 0 开始索引
 const contents = document.querySelectorAll('.content'); // 获取所有内容块
 

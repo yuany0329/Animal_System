@@ -38,14 +38,14 @@
             <td  class="namelink">价格</td>
             <td  class="namelink">操作</td>
         </tr>
-        <tr th:each="order:${orders}">
+            <tr th:each="order:${orders}">
             <td th:text="${order.id}"></td>
-            <td th:text="${order.product.name}"></td>
-            <td th:text="${order.product.area}"></td>
+            <td th:text="${order.product?.name}"></td>
+            <td th:text="${order.product?.area}"></td>
             <td th:text="${#dates.format(order.date,'YYYY-MM-dd')}"></td>
             <td th:text="${order.time}"></td>
             <td th:text="${order.number}"></td>
-            <td th:text="${order.product.price}*${order.number}"></td>
+            <td th:text="${#numbers.formatDecimal((order.product?.price ?: 0) * (order.number ?: 0), 1, 2)}"></td>
             <td>
                 <a th:href="@{'/deleteOrder/'+${order.id}}" class="btn">删除</a>
             </td>

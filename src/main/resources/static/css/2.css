@@ -1,5 +1,7 @@
-nav{
-    background-color: #4CAF50;    overflow: hidden;
+/* 导航栏 */
+nav {
+    background-color: #4CAF50;
+    overflow: hidden;
 }
 
 nav ul {
@@ -23,19 +25,17 @@ nav li a {
     text-decoration: none;
 }
 
-
-#current{
+#current {
     background-color: #faf1bd;
     color: black;
 }
 
-/* 改变背景色和文本颜色，当用户将鼠标悬停在链接上 */
 nav li a:hover {
     background-color: #faf1bd;
     color: black;
 }
 
-/* 下拉框样式 */
+/* 下拉菜单 */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -52,135 +52,94 @@ nav li a:hover {
     display: block;
 }
 
-/* 悬停时显示下拉框 */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-
+/* 全局重置 */
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-.A h2 {text-align: center;
-    font-size: 4rem;
-
-}
-.A h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.A{
-    text-align: center;
-}
-.B{
-    text-align: center;
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    margin: 3rem auto;
-    height: 300px;
-}
-.B h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.C{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    margin: 3rem auto;
-    height: 350px;
-}
-.C h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-
-}
-.image-C{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 132vh;
-    left: 13vh;
-
-    transition: transform 0.5s ease;
-}
-
-
-.image-C:hover {
-    transform: scale(1.2);
-}
-.D{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    height: 320px;margin: 3rem auto;
-}
-.D h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-}
-.image-D{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 203vh;
-    right: 12vh;
-    transition: transform 0.5s ease;
-}
-.image-D:hover {
-    transform: scale(1.2);
-}
-.E{
-    text-align: center; /* 容器内文本居中，但这对我们的解决方案不直接起作用 */
-    border: 5px solid rgba(46, 150, 28, 0.33);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.3);    width: 85%;
-    margin-left: 8%;
-    height: 300px;margin: 3rem auto;
-}
-.E h4{
-    text-align: center;
-    font-size: 2rem;
-    color: #2E961CFF;
-
-}
-.image-E{
-    width: 23%; /* 将图片宽度设置为容器宽度的50% */
-    height: auto; /* 高度自动调整以保持图片的原始宽高比 */
-    border-radius: 10px; /* 圆角边框 */
-    margin: 20px; /* 外边距 */
-    display: block; /* 使图片成为块级元素，便于控制布局 */
-    position: absolute;
-    top: 273vh;
-    left: 13vh;
-    transition: transform 0.5s ease;
-}
-.image-E:hover {
-    transform: scale(1.2);
-}
-body{
     background-image: url("../images/3.5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
+/* 标题样式 */
+.A {
+    text-align: center;
+}
 
+.A h2 {
+    font-size: 4rem;
+}
+
+.A h4 {
+    font-size: 2rem;
+    color: #2E961CFF;
+    text-align: center;
+}
+
+/* B 区块 */
+.B {
+    text-align: center;
+    border: 5px solid rgba(46, 150, 28, 0.33);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 85%;
+    margin: 3rem auto;
+    padding: 1rem;
+    min-height: 300px;
+}
+
+.B h4 {
+    font-size: 2rem;
+    color: #2E961CFF;
+}
+
+/* C, D, E 区块共用样式 */
+.C, .D, .E {
+    border: 5px solid rgba(46, 150, 28, 0.33);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 85%;
+    margin: 3rem auto;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+/* 区块内文字和图片排列 */
+.section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.section-content .text {
+    flex: 1 1 55%;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.section-content .text p {
+    margin: 0.5rem 0;
+}
+
+.section-image {
+    flex: 1 1 40%;
+    max-width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.section-image:hover {
+    transform: scale(1.1);
+}

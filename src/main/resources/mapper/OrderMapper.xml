@@ -38,7 +38,7 @@
         <result property="number" column="number"></result>
         <result property="time" column="time"></result>
         <association property="product" column="zoo_id" javaType="Product"
-                     select="com.cupk.mapper.ProductMapper.findProductById"></association>
+                     select="com.bnu.mapper.ProductMapper.findProductById"></association>
     </resultMap>
 
     <insert id="addOrder" useGeneratedKeys="true" keyProperty="id">

@@ -19,7 +19,6 @@ mybatis:
     type-aliases-package: com.bnu.pojo
     mapper-locations: classpath*:/mapper/*.xml #加载此路径下的映射文件
     configuration:
-
         log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 pagehelper:
     helper-dialect: mysql
